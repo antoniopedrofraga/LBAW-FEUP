@@ -73,7 +73,7 @@
                 
                 <form class="span4 offset4 text-center">
                     <input type='text' placeholder="0.01€">
-                    <button type="button" class="btn btn-danger btn-lg round bid-btn">Licitar!</button>
+                    <button type="button" class="btn btn-warning btn-lg round bid-btn">Licitar!</button>
                 </form>
             </div>
             <div class="well col-md-3 bid-well">
