@@ -41,31 +41,31 @@
 
                 <!-- Row Title -->
 
-                <div class="col-md-2 col-md-offset-1 portfolio-item vcenter">
-                    <a href="#">
-                        <img class="img-responsive" src="http://placehold.it/800x600" alt="">
-                    </a>
-                    <h3>
-                        <a href="#" class="main-color">Leilão 1</a>
-                    </h3>
-                    <small>
-                        <p><span class="glyphicon glyphicon-euro"></span> 0.00</p>
-                        <p><span class="glyphicon glyphicon-time"></span> 3 dias, 9 horas, 20 minutos</p> 
-                    </small>
+                <div class="well col-md-2 col-md-offset-1 portfolio-item vcenter">
+                        <a href="#">
+                            <img class="img-responsive" src="http://placehold.it/800x600" alt="">
+                        </a>
+                        <h3>
+                            <a href="#" class="main-color">Leilão 1</a>
+                        </h3>
+                        <small>
+                            <p><span class="glyphicon glyphicon-euro"></span> 0.00</p>
+                            <p><span class="glyphicon glyphicon-time"></span> 3 dias, 9 horas, 20 minutos</p> 
+                        </small>
                 </div>
-                <div class="col-md-2 portfolio-item vcenter">
+                <div class="well col-md-2 portfolio-item vcenter">
                     <a href="#">
                         <img class="img-responsive" src="http://placehold.it/800x600" alt="">
                     </a>
                     <h3>
                         <a href="#" class="main-color">Leilão 2</a>
                     </h3>
-                     <small>
+                    <small>
                         <p><span class="glyphicon glyphicon-euro"></span> 0.00</p>
                         <p><span class="glyphicon glyphicon-time"></span> 3 dias, 9 horas, 20 minutos</p> 
                     </small>
-                </div>
-                <div class="col-md-2 portfolio-item vcenter">
+            </div>
+                <div class="well col-md-2 portfolio-item vcenter">
                     <a href="#">
                         <img class="img-responsive" src="http://placehold.it/800x600" alt="">
                     </a>
@@ -77,7 +77,7 @@
                         <p><span class="glyphicon glyphicon-time"></span> 3 dias, 9 horas, 20 minutos</p> 
                     </small>
                 </div>
-                <div class="col-md-2 portfolio-item vcenter">
+                <div class="well col-md-2 portfolio-item vcenter">
                     <a href="#">
                         <img class="img-responsive" src="http://placehold.it/800x600" alt="">
                     </a>
@@ -107,7 +107,7 @@
 
                 <!-- Row Title -->
 
-                <div class="col-md-2 col-md-offset-1 portfolio-item vcenter">
+                <div class="well col-md-2 col-md-offset-1 portfolio-item vcenter">
                     <a href="#">
                         <img class="img-responsive" src="http://placehold.it/800x600" alt="">
                     </a>
@@ -119,7 +119,7 @@
                         <p><span class="glyphicon glyphicon-time"></span> 3 dias, 9 horas, 20 minutos</p> 
                     </small>
                 </div>
-                <div class="col-md-2 portfolio-item vcenter">
+                <div class="well col-md-2 portfolio-item vcenter">
                     <a href="#">
                         <img class="img-responsive" src="http://placehold.it/800x600" alt="">
                     </a>
@@ -131,7 +131,7 @@
                         <p><span class="glyphicon glyphicon-time"></span> 3 dias, 9 horas, 20 minutos</p> 
                     </small>
                 </div>
-                <div class="col-md-2 portfolio-item vcenter">
+                <div class="well col-md-2 portfolio-item vcenter">
                     <a href="#">
                         <img class="img-responsive" src="http://placehold.it/800x600" alt="">
                     </a>
@@ -143,7 +143,7 @@
                         <p><span class="glyphicon glyphicon-time"></span> 3 dias, 9 horas, 20 minutos</p> 
                     </small>
                 </div>
-                <div class="col-md-2 portfolio-item vcenter">
+                <div class="well col-md-2 portfolio-item vcenter">
                     <a href="#">
                         <img class="img-responsive" src="http://placehold.it/800x600" alt="">
                     </a>

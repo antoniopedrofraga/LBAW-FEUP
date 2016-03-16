@@ -1,3 +1,3 @@
 <?php
-header('Location: ./pages/bid.php');
+header('Location: ./pages/auction.php');
 ?>
