@@ -127,6 +127,7 @@
             </div>
         </div>
         <!-- /.row -->
+        <?php include './footer.php'; ?>
     </body>
 
     </html>

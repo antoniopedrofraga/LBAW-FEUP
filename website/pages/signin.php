@@ -6,18 +6,6 @@
 
 <script>
 	document.addEventListener( 'DOMContentLoaded', function () {
-		function autenticar() {
-			swal({
-				title: "Autenticar",
-				text:"<form><input class='login-data' placeholder='utilizador' type='text'><br><input class='login-data' placeholder='password' type='password'> </form>",
-				html: true,
-				imageUrl: "../images/security.png",
-				showCancelButton: true,
-			},
-			function(isConfirm){
-				return isConfirm;
-			});
-		}
 		function  registar() {
 			swal({
 				title: "Registar",
@@ -30,7 +18,8 @@
 				return isConfirm;
 			});
 		}
-		autenticar();
+
+		registar();
 	}, false );
 </script>
 </html>

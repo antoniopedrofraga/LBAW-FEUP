@@ -25,7 +25,6 @@
 	<?php include './navigation-bar.php'; ?>
 
 	<!-- Page Content -->
-	<!-- Page Content -->
 	<div class="container">
 
 		<div class="row">

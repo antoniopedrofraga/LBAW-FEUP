@@ -6,3 +6,7 @@ body {
 .icon-title {
 	padding-bottom: 20px;
 }
+
+.list-group-item > .active {
+	color: #ff6700 !important;
+}
