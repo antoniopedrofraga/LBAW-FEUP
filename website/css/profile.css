@@ -7,6 +7,7 @@ body {
 	padding-bottom: 20px;
 }
 
-.list-group-item > .active {
-	color: #ff6700 !important;
+.active {
+	background-color: #ec971f !important;
+	border-color: #ec971f !important;
 }

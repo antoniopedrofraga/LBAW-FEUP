@@ -43,13 +43,13 @@
 					<div class="well">
 						<div class="row">
 							<div class="col-md-12">
-								<span><a class="usr-name" href="#">António</a></span>
-								<div class="col-md-4 pull-right">
+								<span><a class="usr-name vcenter" href="#">António</a></span>
+								<div class="col-md-2 pull-right">
 									<div class="col-md-6">
-										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-asterisk"></span>  Congelar</button>
+										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-asterisk"></span></button>
 									</div>
 									<div class="col-md-6">
-										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-trash"></span>  Apagar</button>
+										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-trash"></span></button>
 									</div>
 								</div>
 							</div>
@@ -58,12 +58,12 @@
 						<div class="row">
 							<div class="col-md-12">
 								<span><a class="usr-name" href="#">Artur</a></span>
-								<div class="col-md-4 pull-right">
+								<div class="col-md-2 pull-right">
 									<div class="col-md-6">
-										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-asterisk"></span>  Congelar</button>
+										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-asterisk"></span></button>
 									</div>
 									<div class="col-md-6">
-										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-trash"></span>  Apagar</button>
+										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-trash"></span></button>
 									</div>
 								</div>
 							</div>
@@ -74,12 +74,12 @@
 						<div class="row">
 							<div class="col-md-12">
 								<span><a class="usr-name" href="#">Bárbara</a></span>
-								<div class="col-md-4 pull-right">
+								<div class="col-md-2 pull-right">
 									<div class="col-md-6">
-										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-asterisk"></span>  Congelar</button>
+										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-asterisk"></span></button>
 									</div>
 									<div class="col-md-6">
-										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-trash"></span>  Apagar</button>
+										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-trash"></span></button>
 									</div>
 								</div>
 							</div>
@@ -88,12 +88,12 @@
 						<div class="row">
 							<div class="col-md-12">
 								<span><a class="usr-name" href="#">Bruna</a></span>
-								<div class="col-md-4 pull-right">
+								<div class="col-md-2 pull-right">
 									<div class="col-md-6">
-										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-asterisk"></span>  Congelar</button>
+										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-asterisk"></span></button>
 									</div>
 									<div class="col-md-6">
-										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-trash"></span>  Apagar</button>
+										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-trash"></span></button>
 									</div>
 								</div>
 							</div>
@@ -102,12 +102,12 @@
 						<div class="row">
 							<div class="col-md-12">
 								<span><a class="usr-name" href="#">Bruno</a></span>
-								<div class="col-md-4 pull-right">
+								<div class="col-md-2 pull-right">
 									<div class="col-md-6">
-										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-asterisk"></span>  Congelar</button>
+										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-asterisk"></span></button>
 									</div>
 									<div class="col-md-6">
-										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-trash"></span>  Apagar</button>
+										<button type="button" class="btn btn-warning round usr-btn"><span class="glyphicon glyphicon-trash"></span></button>
 									</div>
 								</div>
 							</div>
