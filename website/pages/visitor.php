@@ -15,11 +15,7 @@
 				showCancelButton: true,
 			},
 			function(isConfirm){
-				if (isConfirm) {
-					swal("Result !","Job cancelled successfully.");
-				} else {
-					swal("Cancelled  !", "Process aborted");
-				}
+				return isConfirm;
 			});
 		}
 		function  registar() {
@@ -31,11 +27,7 @@
 				showCancelButton: true,
 			},
 			function(isConfirm){
-				if (isConfirm) {
-					swal("Result !","Job cancelled successfully.");
-				} else {
-					swal("Cancelled  !", "Process aborted");
-				}
+				return isConfirm;
 			});
 		}
 		autenticar();
