@@ -1,8 +1,13 @@
-.sweet-alert .login-data {
+.sweet-alert .alert-data {
    	display: initial;
-	width: 90%;
+	  width: 90%;
 }
 
+.sweet-alert .stars {
+    display: initial;
+    width: 30%;
+    margin-top: 30px;
+}
 input[type="date"]:before {
     content: attr(placeholder) !important;
     color: #aaa;

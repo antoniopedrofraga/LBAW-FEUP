@@ -9,7 +9,7 @@
 		function  registar() {
 			swal({
 				title: "Registar",
-				text:"<form><input class='login-data' placeholder='utilizador' type='text'><br><input class='login-data' placeholder='e-mail' type='text'><br><input placeholder='password' class='login-data' type='password'><br><input class='login-data' type='date' placeholder='data de nascimento: ' /><br></form>",
+				text:"<form><input class='alert-data' placeholder='utilizador' type='text'><br><input class='alert-data' placeholder='e-mail' type='text'><br><input placeholder='password' class='alert-data' type='password'><br><input class='alert-data' type='date' placeholder='data de nascimento: ' /><br></form>",
 				html: true,
 				imageUrl: "../images/signin.png",
 				showCancelButton: true,

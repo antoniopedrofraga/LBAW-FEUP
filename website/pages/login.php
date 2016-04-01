@@ -9,7 +9,7 @@
 		function autenticar() {
 			swal({
 				title: "Autenticar",
-				text:"<form><input class='login-data' placeholder='utilizador' type='text'><br><input class='login-data' placeholder='password' type='password'> </form>",
+				text:"<form><input class='alert-data' placeholder='utilizador' type='text'><br><input class='alert-data' placeholder='password' type='password'> </form>",
 				html: true,
 				imageUrl: "../images/security.png",
 				showCancelButton: true,
