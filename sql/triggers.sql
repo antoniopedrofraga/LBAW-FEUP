@@ -5,9 +5,11 @@
 CREATE TRIGGER maiorLicitacao 
 BEFORE INSERT 
 ON Licitacao
-EXECUTE PROCEDURE atualizarLeilao();
+EXECUTE PROCEDURE atualizarLeilao(Licitacao.valor);
 
-CREATE OR REPLACE FUNCTION atualizarLeilao()
+CREATE OR REPLACE FUNCTION atualizarLeilao(
+	valor INTEGER
+)
   RETURNS trigger AS
 $maiorLicitacao$
 BEGIN

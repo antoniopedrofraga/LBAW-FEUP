@@ -5,4 +5,4 @@ INSERT INTO Marca (nome) VALUES ('Ford');
 
 INSERT INTO Leilao (nome, descricao, licitacaoBase, duracao, idLeiloeiro, idMarca) VALUES ('Teste', 'Descricao Teste', 2, 10, 1, 1);
 
-INSERT INTO Licitacao (idLeilao, idCliente, valor) VALUES (1, 2, 20);
+INSERT INTO Licitacao (idLeilao, idCliente, valor) VALUES (1, 2, 20.0);
