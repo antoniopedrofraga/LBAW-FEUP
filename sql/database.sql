@@ -1,39 +1,10 @@
 DROP TABLE IF EXISTS Membro CASCADE
 ;
-DROP TABLE IF EXISTS MembroBanido CASCADE
-;
-DROP TABLE IF EXISTS Admin CASCADE
-; 
-DROP TABLE IF EXISTS Cliente CASCADE
-;
-DROP TABLE IF EXISTS Mensagem CASCADE
-;
-DROP TABLE IF EXISTS Notificacao CASCADE
-;
-DROP TABLE IF EXISTS Marca CASCADE
-;
-DROP TABLE IF EXISTS Feedback CASCADE
-;
-DROP TABLE IF EXISTS FeedbackComprador CASCADE
-;
-DROP TABLE IF EXISTS Registo CASCADE
-;
-DROP TABLE IF EXISTS Preferencias CASCADE
-;
-DROP TABLE IF EXISTS FeedbackLeiloeiro CASCADE
-;
-DROP TABLE IF EXISTS Leilao CASCADE
-;
-DROP TABLE IF EXISTS Imagem CASCADE
-;
-DROP TABLE IF EXISTS Licitacao CASCADE
-;
  
-
 CREATE TABLE Membro
 (
 	idUtilizador SERIAL,
-	nomeUtilizador TEXT NOT NULL,
+	nomeUtilizador VARCHAR(20) NOT NULL,
 	email TEXT NOT NULL,
 	password TEXT NOT NULL,
 	dataNascimento DATE NOT NULL,
@@ -42,10 +13,12 @@ CREATE TABLE Membro
 	PRIMARY KEY (idUtilizador),
 	UNIQUE (nomeUtilizador),
 	UNIQUE (email),
-	CHECK (EXTRACT(YEAR FROM CURRENT_DATE)-EXTRACT(YEAR FROM DataNascimento) >= 18 )
+	CONSTRAINT dataCorreta CHECK (EXTRACT(YEAR FROM CURRENT_DATE)-EXTRACT(YEAR FROM DataNascimento) >= 18)
 )
 ;
  
+DROP TABLE IF EXISTS MembroBanido CASCADE
+;
  
 CREATE TABLE MembroBanido
 (
@@ -60,7 +33,9 @@ CREATE TABLE MembroBanido
 		REFERENCES Membro(idUtilizador)	
 )
 ;
-
+ 
+DROP TABLE IF EXISTS Admin CASCADE
+;
  
 CREATE TABLE Admin
 (
@@ -70,6 +45,9 @@ CREATE TABLE Admin
 	FOREIGN KEY (idAdmin)
 		REFERENCES Membro(idUtilizador) 
 )
+;
+ 
+DROP TABLE IF EXISTS Cliente CASCADE
 ;
  
 CREATE TABLE Cliente
@@ -82,31 +60,35 @@ CREATE TABLE Cliente
 )
 ;
  
+DROP TABLE IF EXISTS Mensagem CASCADE
+;
  
 CREATE TABLE Mensagem
 (
 	idMensagem SERIAL,
 	idEmissor INTEGER NOT NULL,
 	idRecetor INTEGER NOT NULL,
-	texto TEXT NOT NULL,
-	DATA DATE NOT NULL,
+	texto VARCHAR(5000) NOT NULL,
+	dataMensagem DATE NOT NULL,
  
 	PRIMARY KEY (idMensagem),
 	FOREIGN KEY (idRecetor)
 		REFERENCES Membro(idUtilizador) ,
 	FOREIGN KEY (idEmissor)
 		REFERENCES Membro(idUtilizador),
-	CHECK (CHAR_LENGTH(texto) > 0 AND CHAR_LENGTH(texto) < 5000 )
+	CONSTRAINT comprimentoMensagem CHECK (CHAR_LENGTH(texto) > 0 AND CHAR_LENGTH(texto) < 5000 )
 )
 ;
  
+DROP TABLE IF EXISTS Notificacao CASCADE
+;
  
 CREATE TABLE Notificacao
 (
 	idNotificacao SERIAL,
 	idCliente INTEGER NOT NULL,
 	texto TEXT NOT NULL,
-	DATA DATE NOT NULL,
+	dataNotificacao DATE NOT NULL,
  
 	PRIMARY KEY (idNotificacao),
 	FOREIGN KEY (idCliente)
@@ -114,30 +96,37 @@ CREATE TABLE Notificacao
 )
 ;
  
+DROP TABLE IF EXISTS Marca CASCADE
+;
+ 
 CREATE TABLE Marca
 (
 	idMarca SERIAL,
-	nome TEXT NOT NULL,
+	nome VARCHAR(20) NOT NULL,
  
 	PRIMARY KEY (idMarca),
 	UNIQUE(nome)
 )
 ;
  
-
+DROP TABLE IF EXISTS Feedback CASCADE
+;
+ 
 CREATE TABLE Feedback
 (
 	idFeedback SERIAL,
-	texto TEXT NOT NULL,
-	DATA DATE NOT NULL,
+	texto VARCHAR(30) NOT NULL,
+	dataFeedback DATE NOT NULL,
 	valor INTEGER DEFAULT 5,
  
 	PRIMARY KEY (idFeedback),	
-	CHECK (CHAR_LENGTH(texto) >= 1 AND CHAR_LENGTH(texto) <= 30 ), 
-	CHECK (valor >= 0 AND valor <= 5 )
+	CONSTRAINT tamanhoFeedback CHECK (CHAR_LENGTH(texto) >= 1 AND CHAR_LENGTH(texto) <= 30), 
+	CONSTRAINT valorFeedback CHECK (valor >= 0 AND valor <= 5)
 )
 ;
  
+DROP TABLE IF EXISTS FeedbackComprador CASCADE
+;
  
 CREATE TABLE FeedbackComprador
 (
@@ -152,6 +141,8 @@ CREATE TABLE FeedbackComprador
 )
 ;
  
+DROP TABLE IF EXISTS FeedbackLeiloeiro CASCADE
+;
  
 CREATE TABLE FeedbackLeiloeiro
 (
@@ -166,12 +157,14 @@ CREATE TABLE FeedbackLeiloeiro
 )
 ;
  
+DROP TABLE IF EXISTS Leilao CASCADE
+;
  
 CREATE TABLE Leilao
 (
 	idLeilao  SERIAL,
-	nome TEXT NOT NULL,
-	descricao TEXT NOT NULL,
+	nome VARCHAR(50) NOT NULL,
+	descricao VARCHAR(5000) NOT NULL,
 	licitacaoBase FLOAT NOT NULL,
 	licitacaoAtual FLOAT DEFAULT NULL,
 	dataColocacao DATE NOT NULL DEFAULT NOW(),
@@ -190,14 +183,15 @@ CREATE TABLE Leilao
 		REFERENCES Feedback(idFeedback),
 	FOREIGN KEY (idFeedbackCliente)
 		REFERENCES Feedback(idFeedback),
-	CHECK (CHAR_LENGTH(descricao) > 10 AND CHAR_LENGTH(descricao) < 2500 ),
-	CHECK (licitacaoBase > 0.01 ),
-	CHECK (dataColocacao < CURRENT_DATE),
-	CHECK (duracao > 1 AND duracao < 14 )
+	CONSTRAINT tamanhoDescricao CHECK (CHAR_LENGTH(descricao) > 10 AND CHAR_LENGTH(descricao) < 2500),
+	CONSTRAINT valorLicitacaoBase CHECK (licitacaoBase > 0.01),
+	CONSTRAINT dataCorreta CHECK (dataColocacao < CURRENT_DATE),
+	CONSTRAINT duracaoLeilao CHECK (duracao > 1 AND duracao < 14)
 )
 ;
  
-
+DROP TABLE IF EXISTS Imagem CASCADE
+;
  
 CREATE TABLE Imagem
 (
@@ -212,7 +206,8 @@ CREATE TABLE Imagem
 )
 ;
  
-
+DROP TABLE IF EXISTS Licitacao CASCADE
+;
  
 CREATE TABLE Licitacao
 (
@@ -220,7 +215,7 @@ CREATE TABLE Licitacao
 	idLeilao INTEGER NOT NULL,
 	idCliente INTEGER NOT NULL,
 	valor FLOAT NOT NULL,
-	data DATE NOT NULL DEFAULT NOW(),
+	dataLicitacao DATE NOT NULL DEFAULT NOW(),
  
 	PRIMARY KEY (idLicitacao),	
 	FOREIGN KEY (idCliente)
@@ -230,7 +225,9 @@ CREATE TABLE Licitacao
 )
 ;
  
-
+DROP TABLE IF EXISTS Preferencias CASCADE
+;
+ 
 CREATE TABLE Preferencias
 (
 	idCliente INTEGER,
@@ -244,6 +241,8 @@ CREATE TABLE Preferencias
 )
 ;
  
+DROP TABLE IF EXISTS Registo CASCADE
+;
  
 CREATE TABLE Registo
 (
