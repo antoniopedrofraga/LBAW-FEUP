@@ -1,3 +1,21 @@
+-- Função necessária para o constraint confirmaCliente funcionar:
+ 
+CREATE OR REPLACE FUNCTION confirmaCliente(
+		idCliente INTEGER
+	)
+  RETURNS VARCHAR(5) AS
+$confirmaCliente$
+BEGIN
+ IF EXISTS (SELECT * FROM Membro WHERE idCliente = Membro.idUtilizador AND Membro.tipoMembro LIKE 'Cliente')
+ THEN
+ 	RETURN 'True';
+ END IF;
+ RETURN 'False';
+END;
+$confirmaCliente$ LANGUAGE plpgsql;
+ 
+-- Tabelas
+ 
 DROP TABLE IF EXISTS Membro CASCADE
 ;
  
@@ -9,11 +27,13 @@ CREATE TABLE Membro
 	password TEXT NOT NULL,
 	dataNascimento DATE NOT NULL,
 	nomeCivil TEXT,
+        tipoMembro VARCHAR(7),
  
 	PRIMARY KEY (idUtilizador),
 	UNIQUE (nomeUtilizador),
 	UNIQUE (email),
-	CONSTRAINT dataCorreta CHECK (EXTRACT(YEAR FROM CURRENT_DATE)-EXTRACT(YEAR FROM DataNascimento) >= 18)
+	CONSTRAINT dataCorreta CHECK (EXTRACT(YEAR FROM CURRENT_DATE)-EXTRACT(YEAR FROM DataNascimento) >= 18),
+        CONSTRAINT tipoMembroCorreto CHECK (tipoMembro LIKE 'Admin' OR tipoMembro LIKE 'Cliente')
 )
 ;
  
@@ -24,39 +44,13 @@ CREATE TABLE MembroBanido
 (
  
 	idMembroBanido INTEGER,
-	dataBanido DATE NOT NULL,
+	dataBanido TIMESTAMP NOT NULL DEFAULT NOW(),
 	duracao INTEGER,
 	motivo TEXT,
  
 	PRIMARY KEY (idMembroBanido),
 	FOREIGN KEY (idMembroBanido)
 		REFERENCES Membro(idUtilizador)	
-)
-;
- 
-DROP TABLE IF EXISTS Admin CASCADE
-;
- 
-CREATE TABLE Admin
-(
-	idAdmin INTEGER,
- 
-	PRIMARY KEY (idAdmin),
-	FOREIGN KEY (idAdmin)
-		REFERENCES Membro(idUtilizador) 
-)
-;
- 
-DROP TABLE IF EXISTS Cliente CASCADE
-;
- 
-CREATE TABLE Cliente
-(
-	idCliente INTEGER,
- 
-	PRIMARY KEY (idCliente),
-	FOREIGN KEY (idCliente)
-		REFERENCES Membro(idUtilizador) 
 )
 ;
  
@@ -69,14 +63,14 @@ CREATE TABLE Mensagem
 	idEmissor INTEGER NOT NULL,
 	idRecetor INTEGER NOT NULL,
 	texto VARCHAR(5000) NOT NULL,
-	dataMensagem DATE NOT NULL,
+	dataMensagem TIMESTAMP NOT NULL DEFAULT NOW(),
  
 	PRIMARY KEY (idMensagem),
 	FOREIGN KEY (idRecetor)
 		REFERENCES Membro(idUtilizador) ,
 	FOREIGN KEY (idEmissor)
 		REFERENCES Membro(idUtilizador),
-	CONSTRAINT comprimentoMensagem CHECK (CHAR_LENGTH(texto) > 0 AND CHAR_LENGTH(texto) < 5000 )
+	CONSTRAINT comprimentoMensagem CHECK (CHAR_LENGTH(texto) > 0 AND CHAR_LENGTH(texto) < 5000)
 )
 ;
  
@@ -86,13 +80,13 @@ DROP TABLE IF EXISTS Notificacao CASCADE
 CREATE TABLE Notificacao
 (
 	idNotificacao SERIAL,
-	idCliente INTEGER NOT NULL,
+	idUtilizador INTEGER NOT NULL,
 	texto TEXT NOT NULL,
-	dataNotificacao DATE NOT NULL,
+	dataNotificacao TIMESTAMP NOT NULL DEFAULT NOW(),
  
 	PRIMARY KEY (idNotificacao),
-	FOREIGN KEY (idCliente)
-		REFERENCES Cliente(idCliente) 
+	FOREIGN KEY (idUtilizador)
+		REFERENCES Membro(idUtilizador) 
 )
 ;
  
@@ -116,7 +110,7 @@ CREATE TABLE Feedback
 (
 	idFeedback SERIAL,
 	texto VARCHAR(30) NOT NULL,
-	dataFeedback DATE NOT NULL,
+	dataFeedback TIMESTAMP NOT NULL DEFAULT NOW(),
 	valor INTEGER DEFAULT 5,
  
 	PRIMARY KEY (idFeedback),	
@@ -135,7 +129,7 @@ CREATE TABLE FeedbackComprador
  
 	PRIMARY KEY (idFeedback, idComprador),
 	FOREIGN KEY (idComprador)
-		REFERENCES Cliente(idCliente) ,
+		REFERENCES Membro(idUtilizador) ,
 	FOREIGN KEY (idFeedback)
 		REFERENCES Feedback(idFeedback) 
 )
@@ -151,7 +145,7 @@ CREATE TABLE FeedbackLeiloeiro
  
 	PRIMARY KEY (idFeedback, idLeiloeiro),
 	FOREIGN KEY (idLeiloeiro)
-		REFERENCES Cliente(idCliente) ,
+		REFERENCES Membro(idUtilizador) ,
 	FOREIGN KEY (idFeedback)
 		REFERENCES Feedback(idFeedback) 
 )
@@ -167,8 +161,8 @@ CREATE TABLE Leilao
 	descricao VARCHAR(5000) NOT NULL,
 	licitacaoBase FLOAT NOT NULL,
 	licitacaoAtual FLOAT DEFAULT NULL,
-	dataColocacao DATE NOT NULL DEFAULT NOW(),
-	duracao INTEGER NOT NULL,
+	dataColocacao TIMESTAMP NOT NULL DEFAULT NOW(),
+	duracao FLOAT NOT NULL,
 	idLeiloeiro INTEGER NOT NULL,
 	idMarca INTEGER,
 	idFeedbackLeiloeiro INTEGER DEFAULT NULL,
@@ -176,7 +170,7 @@ CREATE TABLE Leilao
  
 	PRIMARY KEY (idLeilao),
 	FOREIGN KEY (idLeiloeiro)
-		REFERENCES Cliente(idCliente),
+		REFERENCES Membro(idUtilizador),
 	FOREIGN KEY (idMarca)
 		REFERENCES Marca(idMarca),
 	FOREIGN KEY (idFeedbackLeiloeiro)
@@ -185,8 +179,9 @@ CREATE TABLE Leilao
 		REFERENCES Feedback(idFeedback),
 	CONSTRAINT tamanhoDescricao CHECK (CHAR_LENGTH(descricao) > 10 AND CHAR_LENGTH(descricao) < 2500),
 	CONSTRAINT valorLicitacaoBase CHECK (licitacaoBase > 0.01),
-	CONSTRAINT dataCorreta CHECK (dataColocacao < CURRENT_DATE),
-	CONSTRAINT duracaoLeilao CHECK (duracao > 1 AND duracao < 14)
+	CONSTRAINT dataCorreta CHECK (dataColocacao <= NOW()),
+	CONSTRAINT duracaoLeilao CHECK (duracao > 1 AND duracao < 14),
+        CONSTRAINT confirmaCliente CHECK (confirmaCliente(idLeiloeiro) = 'True')
 )
 ;
  
@@ -215,13 +210,15 @@ CREATE TABLE Licitacao
 	idLeilao INTEGER NOT NULL,
 	idCliente INTEGER NOT NULL,
 	valor FLOAT NOT NULL,
-	dataLicitacao DATE NOT NULL DEFAULT NOW(),
+	dataLicitacao TIMESTAMP NOT NULL DEFAULT NOW(),
  
 	PRIMARY KEY (idLicitacao),	
 	FOREIGN KEY (idCliente)
-		REFERENCES Cliente(idCliente) ,
+		REFERENCES Membro(idUtilizador) ,
 	FOREIGN KEY (idLeilao)
-		REFERENCES Leilao(idLeilao) 
+		REFERENCES Leilao(idLeilao),
+ 
+        CONSTRAINT confirmaCliente CHECK ( confirmaCliente(idCliente) = 'True' )
 )
 ;
  
@@ -237,7 +234,7 @@ CREATE TABLE Preferencias
 	FOREIGN KEY (idMarca)
 		REFERENCES Marca(idMarca) ,
 	FOREIGN KEY (idCliente)
-		REFERENCES Cliente(idCliente) 
+		REFERENCES Membro(idUtilizador) 
 )
 ;
  
@@ -253,6 +250,6 @@ CREATE TABLE Registo
 	FOREIGN KEY (idLeilao)
 		REFERENCES Leilao(idLeilao) ,
 	FOREIGN KEY (idCliente)
-		REFERENCES Cliente(idCliente) 
+		REFERENCES Membro(idUtilizador) 
 )
 ;
