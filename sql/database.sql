@@ -180,7 +180,7 @@ CREATE TABLE Leilao
 	CONSTRAINT tamanhoDescricao CHECK (CHAR_LENGTH(descricao) > 10 AND CHAR_LENGTH(descricao) < 2500),
 	CONSTRAINT valorLicitacaoBase CHECK (licitacaoBase > 0.01),
 	CONSTRAINT dataCorreta CHECK (dataColocacao <= NOW()),
-	CONSTRAINT duracaoLeilao CHECK (duracao > 1 AND duracao < 14),
+	CONSTRAINT duracaoLeilao CHECK (duracao >= 1.0 AND duracao <= 14.0),
         CONSTRAINT confirmaCliente CHECK (confirmaCliente(idLeiloeiro) = 'True')
 )
 ;
