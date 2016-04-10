@@ -1,0 +1,15 @@
+1º Quando um cliente coloca uma licitação com maior valor, o valor licitacaoAtual deve ser atualizado.
+
+2º Quando um leiloeiro é banido, os seus leilões são automaticamente eliminados.
+
+3º Quando um cliente é banido, as suas licitações são removidas e os leilões onde esse membro licitou passam a ter a licitação mais alta imediatamente anterior.
+
+4º Quando um leilão é removido ou apagado, este leilão deve ser removido da lista de registos de todos os utilizadores, e deve ser adicionada uma notificação de remoção do leilão.
+
+5 º Quando uma licitação de um utilizador é ultrapassada, deve ser adicionada uma notificação de licitação ultrapassada.
+
+6º Quando alguém licitar num leilão, deve ser adicionada uma notificação de licitação ao leiloeiro.
+
+7º Sempre que receber feedback, deve ser adicionada uma notificação no utilizador.
+
+8º Sempre que receber uma mensagem, deve ser adicionada uma notificação no utilizador.
