@@ -99,9 +99,18 @@ ON MembroBanido
 FOR EACH ROW EXECUTE PROCEDURE membroBanido ();
 
 
-CREATE TRIGGER feedback 
+CREATE OR REPLACE FUNCTION notificaMensagem ()
+  	RETURNS trigger AS
+$$
+	BEGIN
+		INSERT INTO Notificacao (idUtilizador, texto) VALUES ( NEW.idRecetor, 'Recebeu uma nova mensagem de ' || (SELECT nomeUtilizador FROM Membro WHERE idUtilizador = NEW.idEmissor) || '.' );
+		RETURN NEW;
+	END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER mensagem
 AFTER INSERT 
-ON Feedback
-FOR EACH ROW EXECUTE PROCEDURE notificaFeedback ();
+ON Mensagem
+FOR EACH ROW EXECUTE PROCEDURE notificaMensagem ();
 
 

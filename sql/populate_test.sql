@@ -10,3 +10,5 @@ INSERT INTO Licitacao (idLeilao, idCliente, valor) VALUES (1, 3, 14.0);
 INSERT INTO Licitacao (idLeilao, idCliente, valor) VALUES (1, 2, 20.0);
 
 INSERT INTO MembroBanido (idMembroBanido, duracao, motivo) VALUES (1, 5, 'Es um Burro!');
+
+INSERT INTO Mensagem (idEmissor, idRecetor, texto) VALUES (2, 1, 'Esta em bom estado?');
