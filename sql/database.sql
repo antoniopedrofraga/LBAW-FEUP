@@ -109,11 +109,14 @@ DROP TABLE IF EXISTS Feedback CASCADE
 CREATE TABLE Feedback
 (
 	idFeedback SERIAL,
+	idLeilao INTEGER NOT NULL,
 	texto VARCHAR(30) NOT NULL,
 	dataFeedback TIMESTAMP NOT NULL DEFAULT NOW(),
 	valor INTEGER DEFAULT 5,
  
-	PRIMARY KEY (idFeedback),	
+	PRIMARY KEY (idFeedback),
+	FOREIGN KEY (idLeilao)
+		REFERENCES Leilao(idLeilao),
 	CONSTRAINT tamanhoFeedback CHECK (CHAR_LENGTH(texto) >= 1 AND CHAR_LENGTH(texto) <= 30), 
 	CONSTRAINT valorFeedback CHECK (valor >= 0 AND valor <= 5)
 )
