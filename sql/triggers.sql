@@ -29,7 +29,7 @@ FOR EACH ROW EXECUTE PROCEDURE atualizarLeilao();
 
 
 
-CREATE OR REPLACE FUNCTION removeLicitacoesENotifica ()
+CREATE OR REPLACE FUNCTION notificaLicitacoesRemovidas ()
  	RETURNS trigger AS
 $$
   DECLARE
@@ -39,8 +39,8 @@ $$
   BEGIN
   		FOR _licitacao IN (SELECT idLicitacao FROM Licitacao WHERE idLeilao = OLD.idLeilao)
   		LOOP
-  			DELETE FROM Licitacao 
-				WHERE idLicitacao = _licitacao RETURNING idCliente, (SELECT nome FROM Leilao WHERE idLeilao = OLD.idLeilao) INTO _leiloeiro, _nomeLeilao;
+  			SELECT nome FROM Leilao WHERE idLeilao = OLD.idLeilao INTO _nomeLeilao;
+  			SELECT idCliente FROM Licitacao WHERE idLicitacao = _licitacao INTO _leiloeiro;
 			IF _leiloeiro IS NOT NULL THEN 
 				INSERT INTO Notificacao (idUtilizador, texto) VALUES (_leiloeiro, 'O leilao ' || _nomeLeilao || ' foi eliminado, como tal as tuas licitacoes nesse leilao tambem foram eliminadas.');
   			END IF;
@@ -50,9 +50,9 @@ $$
 $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER leilaoApagado
-AFTER DELETE 
+BEFORE DELETE 
 ON Leilao
-FOR EACH ROW EXECUTE PROCEDURE removeLicitacoesENotifica ();
+FOR EACH ROW EXECUTE PROCEDURE notificaLicitacoesRemovidas ();
 
 
 CREATE OR REPLACE FUNCTION atualizaMaiorLicitacao ()
@@ -80,7 +80,6 @@ CREATE OR REPLACE FUNCTION membroBanido ()
 $$
 	BEGIN
 		-- Leiloeiro banido
-		EXECUTE removeLicitacoesENotifica ( NEW.idMembroBanido );
 		DELETE FROM Leilao  
 			WHERE idLeiloeiro = NEW.idMembroBanido;
 		-- Cliente banido

@@ -216,7 +216,8 @@ CREATE TABLE Licitacao
 	FOREIGN KEY (idCliente)
 		REFERENCES Membro(idUtilizador) ,
 	FOREIGN KEY (idLeilao)
-		REFERENCES Leilao(idLeilao),
+		REFERENCES Leilao(idLeilao)
+		ON DELETE CASCADE,
  
         CONSTRAINT confirmaCliente CHECK ( confirmaCliente(idCliente) = 'True' )
 )
