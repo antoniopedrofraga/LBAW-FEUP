@@ -18,7 +18,7 @@ INSERT INTO Marca (nome) VALUES ('Seat');
 INSERT INTO Marca (nome) VALUES ('Citroen');
 INSERT INTO Marca (nome) VALUES ('Toyota');
 INSERT INTO Marca (nome) VALUES ('Mercedes');
-INSERT INTO Marca (nome) VALUES ('Nissan')
+INSERT INTO Marca (nome) VALUES ('Nissan');
 
 INSERT INTO Leilao (nome, descricao, licitacaoBase, licitacaoAtual, dataColocacao, duracao, idLeiloeiro, idMarca, idFeedbackLeiloeiro, idFeedbackCliente) VALUES ('Toyota Prius - Bom estado', 'Carro de 2006 em bom estado, na zona do Porto', 5000, 10500,'2016-03-15 14:03:52', 10, 1, 5, 1, 1);
 INSERT INTO Leilao (nome, descricao, licitacaoBase, licitacaoAtual, dataColocacao, duracao, idLeiloeiro, idMarca, idFeedbackLeiloeiro, idFeedbackCliente) VALUES ('Ford Focus 1600 Turbo Diesel', 'Carro de 2009 com 150000Km, bem conservado', 6000, 8600,'2016-01-10 21:41:12', 13, 2, 1, 2, 2);
