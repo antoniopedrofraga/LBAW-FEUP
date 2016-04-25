@@ -1,0 +1,19 @@
+.sweet-alert .alert-data {
+   	display: initial;
+	  width: 90%;
+}
+
+.sweet-alert .stars {
+    display: initial;
+    width: 30%;
+    margin-top: 30px;
+}
+input[type="date"]:before {
+    content: attr(placeholder) !important;
+    color: #aaa;
+    margin-right: 0.5em;
+  }
+  input[type="date"]:focus:before,
+  input[type="date"]:valid:before {
+    content: "";
+  }
