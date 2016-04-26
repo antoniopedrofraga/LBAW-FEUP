@@ -10,6 +10,8 @@
 		});
   	});
   	$('#birthday').daterangepicker({
+  		changeMonth: true,
+        changeYear: true,
 		singleDatePicker: true,
 		locale: {
 			format: 'MM/DD/YYYY'
