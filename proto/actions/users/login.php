@@ -14,9 +14,10 @@
   
   if (isLoginCorrect($username, $password)) {
     $_SESSION['username'] = $username;
-    $_SESSION['success_messages'][] = 'Login successful';  
+    $_SESSION['success_messages'][] = 'Login successful';
   } else {
     $_SESSION['error_messages'][] = 'Login failed';
   }
+  $_SESSION['form_values'] = $_POST;
   header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>

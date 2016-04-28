@@ -1,4 +1,5 @@
 {include file='common/header.tpl'}
+
 <body>
     <!-- login and signin script -->
     <script src="../js/index.js"></script>

@@ -38,12 +38,6 @@
         <a class="navbar-brand" href="#">AutoLeilões</a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input id="input" type="text" class="form-control" placeholder="Pesquisa de automóveis">
-        </div>
-        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-      </form>
       <!-- /.navbar-collapse -->
       {if $USERNAME}
       {include file='common/logged-in.tpl'}
@@ -55,9 +49,18 @@
 
   <div id="error_messages">
     {foreach $ERROR_MESSAGES as $error}
-    <div class="alert alert-warning">
+    <div class="alert alert-danger">
       <a href="#" class="close" data-dismiss="alert">&times;</a>
-      <strong>Warning!</strong> {$error}.
+      <strong>Error!</strong> {$error}.
+    </div>
+    {/foreach}
+  </div>
+
+  <div id="success_messages">
+    {foreach $SUCCESS_MESSAGES as $success}
+    <div class="alert alert-success">
+      <a href="#" class="close" data-dismiss="alert">&times;</a>
+      <strong>Success!</strong> {$success}.
     </div>
     {/foreach}
   </div>
