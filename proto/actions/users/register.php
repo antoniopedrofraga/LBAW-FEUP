@@ -22,8 +22,10 @@
     if (strpos($e->getMessage(), 'users_pkey') !== false) {
       $_SESSION['error_messages'][] = 'Duplicate username';
       $_SESSION['field_errors']['username'] = 'Username already exists';
-    }
-    else $_SESSION['error_messages'][] = 'Error creating user: ' . $e->getMessage();
+    } else if ($e->errorInfo[1] == 1062) {
+      $_SESSION['error_messages'][] = 'Duplicate email or username';
+      $_SESSION['field_errors']['username'] = 'Email or username already exists';
+    } else $_SESSION['error_messages'][] = 'Error creating user: ' . $e->getMessage();
 
     $_SESSION['form_values'] = $_POST;
     header("Location: $BASE_URL");

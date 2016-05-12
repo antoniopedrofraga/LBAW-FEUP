@@ -1,3 +1,7 @@
+.searchForm {
+    position: relative;
+}
+
 .searchForm .dropdown {
   /* Size & position */
     position: absolute;
@@ -5,7 +9,8 @@
     left: 0;
     right: 0;
 
-    width: 30%;
+    width: 140%;
+    padding-left: 0;
 
     /* Styles */
     background: white;
@@ -33,7 +38,7 @@
 }
 
 .searchForm .dropdown li:hover {
-    background-color: #BCD4C2;
+    background-color: #F9BF3B;
     cursor: pointer;
 }
 
