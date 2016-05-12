@@ -2,11 +2,12 @@
 
 <body>
     <!-- login and signin script -->
-    <script src="../js/index.js"></script>
+    <script src="../js/visitor.js"></script>
     <script type="text/javascript" src="../daterangepicker/moment.min.js"></script>
     <!-- Include Date Range Picker -->
     <script type="text/javascript" src="../daterangepicker/daterangepicker.js"></script>
     <link rel="stylesheet" type="text/css" href="../daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" type="text/css" href="../css/custom-modal.css" />
 
 </body>
 

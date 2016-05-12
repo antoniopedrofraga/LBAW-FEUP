@@ -26,13 +26,13 @@
 			</div>
 			<div class="modal-body">
 				<div>
-					<textarea class='form-control popup-element' rows='1' id='comment' placeholder="Nome do leilão"></textarea>
+					<textarea class='form-control popup-element' rows='1' id='comment' placeholder="Nome do leilão" required></textarea>
 				</div>
 				<div>
-					<textarea class='form-control popup-element' rows='2' id='comment' maxlength='300' placeholder="Breve descrição"></textarea>
+					<textarea class='form-control popup-element' rows='2' id='comment' maxlength='300' placeholder="Breve descrição" required></textarea>
 				</div>
 				<div>
-					<textarea class='form-control popup-element' rows='4' id='comment' maxlength='900' placeholder="Descrição completa"></textarea>
+					<textarea class='form-control popup-element' rows='4' id='comment' maxlength='900' placeholder="Descrição completa" required></textarea>
 				</div>
 				<div id="block_container">
 

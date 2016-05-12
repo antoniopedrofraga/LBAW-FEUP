@@ -11,7 +11,7 @@
             <a href="#"><span class="glyphicon glyphicon-user"></span>  {$USERNAME}</a>
           </li>
           <li>
-            <a class="glyphicon glyphicon-plus-sign" href="#"></a>
+            <a id="create-auction" class="glyphicon glyphicon-plus-sign" href="#"></a>
           </li>
           <li>
             <a class="glyphicon glyphicon-bell" href="#"></a>

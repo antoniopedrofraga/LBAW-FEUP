@@ -7,7 +7,13 @@
     $_SESSION['form_values'] = $_POST;
     header('Location: ' . $_SERVER['HTTP_REFERER']);
     exit;
+  } else if ($_SESSION['username']) {
+    $_SESSION['error_messages'][] = 'You are already logged in';
+    $_SESSION['form_values'] = $_POST;
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit;
   }
+
 
   $username = $_POST['username'];
   $password = $_POST['password'];

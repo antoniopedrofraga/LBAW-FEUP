@@ -25,4 +25,14 @@ $( document ).ready(function() {
 		}
 	});
 
+	$("#input-image-1").fileinput({
+		initialCaption: "Carrega fotografias",
+		language: "pt",
+		uploadUrl: "../js/visitor.js",
+		maxFileCount: 5,
+		showCaption: false,
+		overwriteInitial: false,
+		allowedFileExtensions: ["jpg", "png", "gif"]
+	});
+
 });
