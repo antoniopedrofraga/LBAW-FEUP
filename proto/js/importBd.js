@@ -12,5 +12,15 @@ $(document).on('ready', function() {
 		},
 		uploadUrl: "teste"
 	});
+
+	$('#end-date').daterangepicker({
+		singleDatePicker: true,
+		timePicker: true,
+		timePickerIncrement: 30,
+		locale: {
+			format: 'DD/MM/YYYY h:mm A'
+		}
+	});
+
 	
 });

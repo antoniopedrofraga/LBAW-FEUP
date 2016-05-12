@@ -1,6 +1,10 @@
-      <form class="navbar-form navbar-left" role="search">
+      <link href="../css/search.css" rel="stylesheet">
+
+      <form class="navbar-form navbar-left searchForm" role="search">
         <div class="form-group">
-          <input id="input" type="text" class="form-control" placeholder="Pesquisa de automóveis">
+          <input id="searchTextBox" type="text" class="form-control" placeholder="Pesquisa de automóveis" autocomplete="off">
+          <ul class="dropdown" id="searchDropdown">
+          </ul>
         </div>
         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
       </form>
@@ -17,7 +21,9 @@
             <a class="glyphicon glyphicon-bell" href="#"></a>
           </li>
           <li>
-          <a class="glyphicon glyphicon-off" href="../actions/users/logout.php"></a>
+            <a class="glyphicon glyphicon-off" href="../actions/users/logout.php"></a>
           </li>
         </ul>
       </div>
+
+      <script src="../js/search.js"></script>
