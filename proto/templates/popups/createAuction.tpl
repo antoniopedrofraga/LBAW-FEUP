@@ -15,9 +15,12 @@
 				<div id="block_container">
 					<div id='block1'>
 						<h4>Data de fim</h4>
-						<input class='popup-element' type="text" name="enddate" value="10/24/1984" />
+						<input id="end-date" class='popup-element' type="text" value="10/24/1984" />
 					</div>
-					<input id="input-image-1" name="input-image" type="file" multiple class="file-loading" accept="image/*">
+					<div id='block2'>
+						<h4>Carrega fotografias</h4>
+						<input id="input-image-1" name="input-image" type="file" multiple class="file-loading" accept="image/*">
+					</div>
 				</div>
 				<input type="submit" name="create-auction" class="create-auction custom-modal-submit" value="Criar">
 			</form>

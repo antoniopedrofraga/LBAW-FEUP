@@ -3,10 +3,14 @@
 
 $(document).on('ready', function() {
 	
-	$('#input-image-1').fileinput({
-		showUpload: true,
-		uploadUrl: 'upload.php',
-		dropZoneEnabled: false
+	$("#input-image-1").fileinput({
+		language: "pt",
+		maxFileCount: 5,
+		dropZoneEnabled: false,
+		previewSettings: {
+    		image: {width: "160px", height: "auto"}
+		},
+		uploadUrl: "teste"
 	});
 	
 });

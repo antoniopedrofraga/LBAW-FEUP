@@ -16,23 +16,13 @@ $( document ).ready(function() {
 		});
 	});
 
-	$('input[name="enddate"]').daterangepicker({
+	$('#end-date').daterangepicker({
 		singleDatePicker: true,
 		timePicker: true,
 		timePickerIncrement: 30,
 		locale: {
 			format: 'DD/MM/YYYY h:mm A'
 		}
-	});
-
-	$("#input-image-1").fileinput({
-		initialCaption: "Carrega fotografias",
-		language: "pt",
-		uploadUrl: "../js/visitor.js",
-		maxFileCount: 5,
-		showCaption: false,
-		overwriteInitial: false,
-		allowedFileExtensions: ["jpg", "png", "gif"]
 	});
 
 });
