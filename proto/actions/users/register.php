@@ -19,12 +19,12 @@
     createUser($name, $username, $email, $password, $birthday);
   } catch (PDOException $e) {
   
-    if (strpos($e->getMessage(), 'users_pkey') !== false) {
+    if (strpos($e->getMessage(), 'membro_nomeutilizador_key') !== false) {
       $_SESSION['error_messages'][] = 'Duplicate username';
       $_SESSION['field_errors']['username'] = 'Username already exists';
-    } else if ($e->errorInfo[1] == 1062) {
-      $_SESSION['error_messages'][] = 'Duplicate email or username';
-      $_SESSION['field_errors']['username'] = 'Email or username already exists';
+    } else if (strpos($e->getMessage(), 'membro_email_key')) {
+      $_SESSION['error_messages'][] = 'Duplicated email!';
+      $_SESSION['field_errors']['username'] = 'Email already exists';
     } else $_SESSION['error_messages'][] = 'Error creating user: ' . $e->getMessage();
 
     $_SESSION['form_values'] = $_POST;
