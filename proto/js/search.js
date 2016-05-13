@@ -26,7 +26,7 @@ $('#searchTextBox').keyup(function() {
    $.getJSON("../ajax/search-auctions.php", {
     text: text
   }, function(data) {
-    console.log(data.length);
+
     $("#searchDropdown").html('');
     var output = "";
     for (auction in data) {
