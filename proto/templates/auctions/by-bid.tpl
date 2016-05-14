@@ -13,7 +13,7 @@
 				<img class="img-responsive" src="https://placehold.it/800x600" alt="">
 			</a>
 			<h3>
-				<a href="#" class="main-color">{$auctionByBid.nome}</a>
+				<a href="#" class="main-color auction-name">{$auctionByBid.nome}</a>
 			</h3>
 			<small>
 				<p><span class="glyphicon glyphicon-euro"></span>

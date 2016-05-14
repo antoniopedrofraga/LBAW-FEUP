@@ -16,9 +16,14 @@
   <title>AutoLeilões</title>
 
   <link href="../css/navigation-bar.css" rel="stylesheet">
-  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/bootstrap.css" rel="stylesheet">
+  
   <script src="../js/jquery.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/bootstrap.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
+  
 
 </head>
 

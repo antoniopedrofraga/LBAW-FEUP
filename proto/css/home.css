@@ -3,17 +3,42 @@
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
+* {
+ 	box-sizing: border-box;
+ }
 
-body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    background-color: #ededed;
+ body {
+ 	padding-top: 70px; 
+ 	background-color: #ededed;
+ 	color: #000;
+ }
+
+ .auction-name {
+ 	white-space: nowrap;
+ 	overflow: hidden;
+ 	text-overflow: ellipsis;
+ 	display: inline-block;
+ 	width: 100%;
+ }
+
+ footer {
+ 	margin: 50px 0;
+ }
+
+ .slick-slider {
+
+  margin:20px auto;
+  padding:20px;
+  text-align: center;
+  box-sizing: border-box !important;
+  
+  img{display: block !important;margin:auto;}
+  
 }
 
-.portfolio-item {
-    margin-bottom: 25px;
+.slick-slide
+{
+	min-width: 200px;
 }
 
 
-footer {
-    margin: 50px 0;
-}

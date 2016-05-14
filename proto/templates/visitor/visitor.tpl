@@ -1,6 +1,7 @@
 {include file='common/header.tpl'}
 
 <body>
+	
     <!-- login and signin script -->
     <script src="../js/visitor.js"></script>
     <script type="text/javascript" src="../daterangepicker/moment.min.js"></script>
