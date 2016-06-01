@@ -8,7 +8,7 @@ $( document ).ready(function() {
 	});
 
 	$('.main-carousel').flickity({
-  	autoPlay: 1500,
+  	autoPlay: 5000,
   	wrapAround: true,
   	pageDots: false,
   	cellAlign: 'center',

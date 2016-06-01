@@ -12,13 +12,13 @@
       <div class="collapse navbar-collapse user-space" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li>
-            <a href="#"><span class="glyphicon glyphicon-user"></span>  {$USERNAME}</a>
+            <a id="username" href="#"><span class="glyphicon glyphicon-user"></span> {$USERNAME}</a>
           </li>
           <li>
             <a id="create-auction" class="glyphicon glyphicon-plus-sign" href="#"></a>
           </li>
           <li>
-            <a class="glyphicon glyphicon-bell" href="#"></a>
+            <a id="notifications" class="glyphicon glyphicon-bell" href="#"></a>
           </li>
           <li>
             <a class="glyphicon glyphicon-off" href="../actions/users/logout.php"></a>
@@ -26,4 +26,5 @@
         </ul>
       </div>
 
-      <script src="../js/search.js"></script>
+      <script src="../js/navbar/search.js"></script>
+      <script src="../js/navbar/notifications.js"></script>
