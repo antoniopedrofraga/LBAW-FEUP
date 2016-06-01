@@ -3,17 +3,13 @@
 <link rel="stylesheet" type="text/css" href="../css/home.css">
 <link rel="stylesheet" type="text/css" href="../css/custom-modal.css" />
 <link rel="stylesheet" type="text/css" href="../css/create-auction.css" />
+<link href="../css/hover.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../lib/flickity/flickity.css" media="screen">
 
-
-<body>
 	<div class="container">
 		{include file='auctions/recents.tpl'}
 		{include file='auctions/by-bid.tpl'}
 	</div>
-
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-	<script type="text/javascript" src="../js/sliding-menu.js"></script>
-</body>
 
 <script type="text/javascript" src="../daterangepicker/moment.min.js"></script>
 <!-- Include Date Range Picker -->
@@ -22,6 +18,7 @@
 
 {include file='popups/createAuction.tpl'}
 
+<script src="../lib/flickity/flickity.js"></script>
 <script src="../js/index.js"></script>
-
+</body>
 </html>

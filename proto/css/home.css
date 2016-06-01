@@ -13,32 +13,22 @@
  	color: #000;
  }
 
+ .portfolio-item {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+
  .auction-name {
  	white-space: nowrap;
  	overflow: hidden;
  	text-overflow: ellipsis;
  	display: inline-block;
  	width: 100%;
+ 	font-size: 55%;
  }
 
  footer {
  	margin: 50px 0;
  }
-
- .slick-slider {
-
-  margin:20px auto;
-  padding:20px;
-  text-align: center;
-  box-sizing: border-box !important;
-  
-  img{display: block !important;margin:auto;}
-  
-}
-
-.slick-slide
-{
-	min-width: 200px;
-}
-
 

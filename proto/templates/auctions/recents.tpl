@@ -1,16 +1,11 @@
-
-<div class="row">
-
-	<!-- Row Title -->
-	<div class="row">
-		<div class="col-lg-12">
-			<h1 class="page-header">Mais recentes
-			</h1>
-		</div>
+<div class="panel-body">
+	<h1 class="page-header">Mais recentes
+	</h1>
+	<div class="main-carousel">
 		{foreach $recentAuctions as $recentAuction}
-		<div class="well col-md-2 col-md-offset-1 portfolio-item vcenter">
+		<div class="portfolio-item hvr-grow">
 			<a href="#">
-				<img class="img-responsive" src="https://placehold.it/800x600" alt="">
+				<img class="carousel-image" alt="" width=200 height=200 style='background: url("https://placehold.it/800x600") 50% 50% no-repeat; background-size: cover;'>
 			</a>
 			<h3>
 				<a href="#" class="main-color auction-name">{$recentAuction.nome}</a>
@@ -26,9 +21,7 @@
 			</small>
 		</div>
 		{/foreach}
-
 	</div>
-
 </div>
 
 

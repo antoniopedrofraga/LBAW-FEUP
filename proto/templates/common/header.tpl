@@ -1,28 +1,21 @@
 <!DOCTYPE html>
-<html>
-
-
-<html class="full" lang="en">
+<html lang="en">
 <!-- Make sure the <html> tag is set to the .full CSS class. Change the background image in the full.css file. -->
 
 <head>
 
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>AutoLeilões</title>
+  <title>AutoLeilões!</title>
 
   <link href="../css/navigation-bar.css" rel="stylesheet">
-  <link href="../css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   
-  <script src="../js/jquery.js"></script>
-  <script src="../js/bootstrap.js"></script>
-
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   
 
 </head>

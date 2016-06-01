@@ -4,8 +4,8 @@ body {
 }
 
 .portfolio-item {
-    margin-bottom: 12px;
-    margin-top: 12px;
+    padding-left: 100%;
+    padding-right: 100%;
 }
 
 .no-padding-margin {

@@ -1,6 +1,5 @@
 <?php
     include_once('../config/init.php');
-    
     if (!isset($_SESSION["username"])) {
     	$smarty->display('visitor/visitor.tpl');
     } else {
