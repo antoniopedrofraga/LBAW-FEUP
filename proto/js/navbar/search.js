@@ -23,9 +23,7 @@ $('#searchTextBox').keyup(function() {
 
    var text = $('#searchTextBox').val();
 
-   $.getJSON("../ajax/search-auctions.php", {
-    text: text
-  }, function(data) {
+   $.getJSON("../ajax/search-auctions.php", { text: text }, function(data) {
 
     $("#searchDropdown").html('');
     var output = "";
@@ -39,6 +37,7 @@ $('#searchTextBox').keyup(function() {
       output += '</div>';
       output += '</li>';
     }
+    
     if (data == null || data.length == 0)
       output = "<li><a>Não foram encontrados leilões...</a></li>";
 

@@ -4,12 +4,12 @@
   	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   	$conn->exec('SET SCHEMA \'proto\'');
 
-  	$string = $_GET["text"];
+  	$username = $_GET["username"];
 
-  	$query = "SELECT * FROM Leilao WHERE to_tsvector('portuguese', descricao) @@ to_tsquery('portuguese', '" . $string . "') OR nome LIKE '%" . $string . "%' LIMIT 5";
+  	$query = "SELECT * FROM Notificacao WHERE idUtilizador IN (SELECT idUtilizador FROM Membro WHERE nomeUtilizador = '" . $username . "')";
   	//"SELECT * FROM Leilao WHERE nome LIKE '%" . $string . "%' LIMIT 5";
   	$stmt = $conn->prepare($query);
  	$stmt->execute();
- 	$auctions = $stmt->fetchAll();
- 	echo json_encode($auctions);
+ 	$notifications = $stmt->fetchAll();
+ 	echo json_encode($notifications);
 ?>

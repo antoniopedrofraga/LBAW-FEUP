@@ -1,45 +1,61 @@
-$(function() {
-  $(document).click(function() {
-   $("#notifications").css({
+
+
+$(function(){       
+        
+        var $win = $(window); // or $box parent container
+        var $box = $("#notifications");
+        
+         $win.on("click.Bst", function(event){    
+          if ( 
+            $box.has(event.target).length == 0 //checks if descendants of $box was clicked
+            &&
+            !$box.is(event.target) //checks if the $box itself was clicked
+          ){
+            hideNotif();
+          } else {
+            getNotif();
+          }
+        });
+  
+});
+
+function hideNotif() {
+  $("#notificationsDropdown").css({
      'opacity' : '0',
      'pointer-events' : 'none',
      'z-index' : '1'
    });
- });
-
-});
+};
 
 
+function getNotif() {
 
-$('#notifications').click(function() {
-
-
-   $("#searchDropdown").css({
+   $("#notificationsDropdown").css({
      'opacity' : '1',
      'pointer-events' : 'auto',
      'z-index' : '1'
    });
 
-   var text = $('#searchTextBox').val();
+   var text = $('#username').text();
 
-   $.getJSON("../ajax/get-notifications.php", { username : } function(data) {
+  $.getJSON("../ajax/get-notifications.php", { username : text } , function(data) {
 
-    $("#searchDropdown").html('');
+    $("#notificationsDropdown").html('');
     var output = "";
-    for (auction in data) {
+    for (notificacao in data) {
       output += "<li>";
       output += '<div onclick="#">';
       output += '<div class="image"><img src="https://placehold.it/800x600"></div>';
       output += '<div class="text">';
-      output += '<p class="name">' + data[auction].nome + '</p>';
+      output += '<p class="name">' + data[notificacao].texto + '</p>';
       output += '</div>';
       output += '</div>';
       output += '</li>';
     }
     if (data == null || data.length == 0)
-      output = "<li><a>Não foram encontrados leilões...</a></li>";
+      output = "<li><a>Sem notificações</a></li>";
 
-    $("#searchDropdown").append(output);
+    $("#notificationsDropdown").append(output);
   });
 
- }); 
+ };

@@ -45,6 +45,7 @@
     </div>
   </nav>
 
+  {if !empty($ERROR_MESSAGES)}
   <div id="error_messages">
     {foreach $ERROR_MESSAGES as $error}
     <div class="alert alert-danger">
@@ -53,7 +54,9 @@
     </div>
     {/foreach}
   </div>
+  {/if}
 
+  {if !empty($SUCCESS_MESSAGES)}
   <div id="success_messages">
     {foreach $SUCCESS_MESSAGES as $success}
     <div class="alert alert-success">
@@ -62,4 +65,5 @@
     </div>
     {/foreach}
   </div>
+  {/if}
 

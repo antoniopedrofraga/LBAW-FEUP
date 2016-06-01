@@ -2,14 +2,42 @@
     position: relative;
 }
 
-.searchForm .dropdown {
+.user-space {
+    position: relative;
+}
+
+.user-space .dropdown:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 100%;
+    right: 28%;
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.1) transparent;    
+}
+
+#user-space .dropdown:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 100%;
+    right: 33%;
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: #fff transparent;    
+}
+
+.dropdown {
   /* Size & position */
     position: absolute;
-    top: 140%;
+    top: 130%;
     left: 0;
     right: 0;
 
-    width: 140%;
+    width: 100%;
     padding-left: 0;
 
     /* Styles */
@@ -27,7 +55,7 @@
     z-index: 1;
 }
 
-.searchForm .dropdown li {
+.dropdown li {
     display: block;
     padding: 3px;
     text-decoration: none;
@@ -37,17 +65,17 @@
     border-bottom: 1px solid #e6e8ea;
 }
 
-.searchForm .dropdown li:hover {
+.dropdown li:hover {
     background-color: #F9BF3B;
     cursor: pointer;
 }
 
-.searchForm .dropdown li div .text{
+.dropdown li div .text{
     display: inline-block;
 }
 
 
-.searchForm .dropdown li div div .name {
+.dropdown li div div .name {
     padding: 3px;
     padding-bottom: 2px;
     text-decoration: none;
@@ -57,7 +85,7 @@
     line-height: 15px;
 }
 
-.searchForm .dropdown li div div .description {
+.dropdown li div div .description {
     padding: 3px;
     padding-top: 1px;
     text-decoration: none;
@@ -67,11 +95,11 @@
     line-height: 15px;
 }
 
-.searchForm .dropdown li div .image {
+.dropdown li div .image {
 	float: left;
 }
 
-.searchForm .dropdown li div div img {
+.dropdown li div div img {
 	display:block;
    	height: 35px;
    	width:35px;
@@ -79,7 +107,7 @@
    	object-fit: cover;
 }
 
-.searchForm .dropdown li a {
+.dropdown li a {
     display: block;
     padding: 3px;
     text-decoration: none;
