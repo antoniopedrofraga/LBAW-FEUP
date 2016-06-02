@@ -4,6 +4,8 @@
 
 -- Função necessária para o constraint confirmaCliente funcionar:
  
+-- Função necessária para o constraint confirmaCliente funcionar:
+ 
 CREATE OR REPLACE FUNCTION confirmaCliente(
 		idCliente INTEGER
 	)
@@ -32,6 +34,7 @@ CREATE TABLE Membro
 	dataNascimento DATE NOT NULL,
 	nomeCivil TEXT,
         tipoMembro VARCHAR(7),
+    dataInscricao TIMESTAMP NOT NULL DEFAULT NOW(),
  
 	PRIMARY KEY (idUtilizador),
 	UNIQUE (nomeUtilizador),
@@ -68,6 +71,7 @@ CREATE TABLE Mensagem
 	idRecetor INTEGER NOT NULL,
 	texto VARCHAR(5000) NOT NULL,
 	dataMensagem TIMESTAMP NOT NULL DEFAULT NOW(),
+	read BOOLEAN NOT NULL DEFAULT false,
  
 	PRIMARY KEY (idMensagem),
 	FOREIGN KEY (idRecetor)
@@ -258,7 +262,6 @@ CREATE TABLE Registo
 		REFERENCES Membro(idUtilizador) 
 )
 ;
-
 
 
 -- GATILHOS

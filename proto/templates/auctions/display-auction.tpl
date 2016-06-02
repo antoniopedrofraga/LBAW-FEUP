@@ -40,14 +40,14 @@
                         <span class="glyphicon glyphicon-star-empty"></span>
                         <span class="glyphicon glyphicon-star-empty"></span>
                     </span>
-                    <span class="glyphicon glyphicon-user"></span>    <a href="#">Utilizador</a>
+                    <span class="glyphicon glyphicon-user"></span>    <a href="#">{$auctioner.nomeutilizador}</a>
                 </p>
                 <br>
-                <h3 class="text-center">3 licitações</h3>
+                <h3 class="text-center">{$auctionCount} {if $auctionCount == 1}leilão{else}leilões{/if}</h3>
                 <br>
                 <p class="text-center">
                     <small>Registado desde<br>
-                    10.03.2016</small>
+                    {$auctioner.datainscricao}</small>
                 </p>
                 <div class="span4 offset4 text-center">
                     <button type="button" class="btn btn-warning btn-larg round bid-btn"><span class="glyphicon glyphicon-envelope"></span>  Contactar</button>

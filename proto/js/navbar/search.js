@@ -15,15 +15,16 @@ $('#searchTextBox').keyup(function() {
 
  if($(this).val().length > 0) {
 
-   $("#searchDropdown").css({
-     'opacity' : '1',
-     'pointer-events' : 'auto',
-     'z-index' : '1'
-   });
-
    var text = $('#searchTextBox').val();
 
    $.getJSON("../ajax/search-auctions.php", { text: text }, function(data) {
+
+    $("#searchDropdown").css({
+     'opacity' : '1',
+     'pointer-events' : 'auto',
+     'z-index' : '1'
+    });
+
 
     $("#searchDropdown").html('');
     var output = "";
@@ -37,7 +38,7 @@ $('#searchTextBox').keyup(function() {
     }
     
     if (data == null || data.length == 0)
-      output = "<li><a>Não foram encontrados leilões...</a></li>";
+      output = "<li>Não foram encontrados leilões...</li>";
 
     $("#searchDropdown").append(output);
   });

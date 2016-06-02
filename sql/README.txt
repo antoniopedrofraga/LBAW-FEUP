@@ -1,0 +1,1 @@
+o ficheiro onlineAuctions.sql é o script para criar tabelas, inserir valores e criar triggers na base de dados. 

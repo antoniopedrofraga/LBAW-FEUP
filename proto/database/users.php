@@ -15,6 +15,15 @@ function unreadNotifications($name) {
   return $result['count'];
 }
 
+function getAuctionerByAuctionId($id) {
+  global $conn;
+  $stmt = $conn->prepare("SELECT * FROM Membro WHERE idUtilizador IN (SELECT idLeiloeiro FROM Leilao WHERE idLeilao = ?)");
+  $stmt->execute(array($id));
+  $result = $stmt->fetch();
+  $result['datainscricao'] = date('Y-m-d', strtotime($result['datainscricao']));
+  return $result;
+}
+
 function isLoginCorrect($username, $password) {
   global $conn;
   $stmt = $conn->prepare("SELECT * FROM Membro WHERE nomeUtilizador = ? AND password = ?");

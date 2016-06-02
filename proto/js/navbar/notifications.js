@@ -30,16 +30,17 @@ function hideNotif() {
 
 function getNotif() {
 
-   $("#notificationsDropdown").css({
-     'opacity' : '1',
-     'pointer-events' : 'auto',
-     'z-index' : '1'
-   });
 
    var text = $('#username').text();
 
 
   $.getJSON("../ajax/get-notifications.php", { username : text } , function(data) {
+
+    $("#notificationsDropdown").css({
+     'opacity' : '1',
+     'pointer-events' : 'auto',
+     'z-index' : '1'
+   });
 
     $("#notificationsDropdown").html('');
     var output = "";
@@ -52,7 +53,7 @@ function getNotif() {
       output += '</li>';
     }
     if (data == null || data.length == 0)
-      output = "<li><a>Sem notificações</a></li>";
+      output = "<li>Sem notificações</li>";
 
     $("#notificationsDropdown").append(output);
   });

@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../daterangepicker/daterangepicker.css" />
     <link rel="stylesheet" type="text/css" href="../css/custom-modal.css" />
 
+
 </body>
 
 {include file='popups/login.tpl'}

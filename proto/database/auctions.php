@@ -21,6 +21,14 @@
  	return $stmt->fetchAll();
  }
 
+ function getAuctionCountByUserId($id) {
+ 	global $conn;
+ 	$stmt = $conn->prepare("SELECT COUNT(*) AS count FROM Leilao WHERE idLeiloeiro = " . $id . " LIMIT 1");
+ 	$stmt->execute();
+ 	$result = $stmt->fetchAll();
+ 	return $result[0]['count'];
+ }
+
  function getAuctionsCount() {
  	global $conn;
  	$stmt = $conn->prepare("SELECT COUNT(*) AS count FROM Leilao");
