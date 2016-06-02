@@ -38,6 +38,7 @@ function getNotif() {
 
    var text = $('#username').text();
 
+
   $.getJSON("../ajax/get-notifications.php", { username : text } , function(data) {
 
     $("#notificationsDropdown").html('');
@@ -46,9 +47,7 @@ function getNotif() {
       output += "<li>";
       output += '<div onclick="#">';
       output += '<div class="image"><img src="https://placehold.it/800x600"></div>';
-      output += '<div class="text">';
       output += '<p class="name">' + data[notificacao].texto + '</p>';
-      output += '</div>';
       output += '</div>';
       output += '</li>';
     }

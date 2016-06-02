@@ -16,4 +16,13 @@ $( document ).ready(function() {
   	contain: true
 	});
 
+	$('.photos-carousel').flickity({
+  	autoPlay: 2500,
+  	wrapAround: true,
+  	pageDots: false,
+  	cellAlign: 'center',
+  	resize: false,
+  	contain: true
+	});
+
 });

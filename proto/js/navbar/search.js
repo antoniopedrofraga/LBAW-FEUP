@@ -28,12 +28,10 @@ $('#searchTextBox').keyup(function() {
     $("#searchDropdown").html('');
     var output = "";
     for (auction in data) {
-      output += "<li>";
-      output += '<div onclick="#">';
+      output += "<li onclick='window.location=\"../pages/auction.php?id=" + data[auction].idleilao + "\"'>";
+      output += "<div>";
       output += '<div class="image"><img src="https://placehold.it/800x600"></div>';
-      output += '<div class="text">';
       output += '<p class="name">' + data[auction].nome + '</p>';
-      output += '</div>';
       output += '</div>';
       output += '</li>';
     }

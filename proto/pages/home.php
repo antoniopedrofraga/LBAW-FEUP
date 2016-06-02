@@ -5,10 +5,16 @@
     } else {
 
     	include_once('../database/auctions.php');
+      include_once('../database/users.php');
+
+      $name = $_SESSION["username"];
+
   		$recentAuctions = getRecentAuctions();
       $auctionsByBid = getAuctionsByBid();
   		$auctionsCount = getAuctionsCount();
+      $counter = unreadNotifications($name);
 
+      $smarty->assign('notifCounter', $counter);
   		$smarty->assign('recentAuctions', $recentAuctions);
       $smarty->assign('auctionsByBid', $auctionsByBid);
   		$smarty->assign('auctionsCount', $auctionsCount);

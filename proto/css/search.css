@@ -11,6 +11,7 @@
     width: 0;
     height: 0;
     position: absolute;
+    color: white;
     bottom: 100%;
     right: 28%;
     border-width: 0 8px 8px 8px;
@@ -23,6 +24,7 @@
     width: 0;
     height: 0;
     position: absolute;
+    color: white;
     bottom: 100%;
     right: 33%;
     border-width: 0 6px 6px 6px;
@@ -33,7 +35,7 @@
 .dropdown {
   /* Size & position */
     position: absolute;
-    top: 130%;
+    top: 120%;
     left: 0;
     right: 0;
 
@@ -57,12 +59,17 @@
 
 .dropdown li {
     display: block;
-    padding: 3px;
+    padding: 4%;
+    padding-bottom: 5%;
     text-decoration: none;
     color: #5E5951;
     box-shadow: inset 0 1px 0 rgba(255,255,255,1);
     transition: all 0.2s ease-out;
     border-bottom: 1px solid #e6e8ea;
+}
+
+.dropdown li .name {
+    margin-left : 3%;
 }
 
 .dropdown li:hover {

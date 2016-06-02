@@ -6,7 +6,7 @@
 
   	$username = $_GET["username"];
 
-  	$query = "SELECT * FROM Notificacao WHERE idUtilizador IN (SELECT idUtilizador FROM Membro WHERE nomeUtilizador = '" . $username . "')";
+  	$query = "SELECT * FROM Notificacao, Membro WHERE Notificacao.idUtilizador = Membro.idUtilizador AND Membro.nomeUtilizador = '" . $username . "'";
   	//"SELECT * FROM Leilao WHERE nome LIKE '%" . $string . "%' LIMIT 5";
   	$stmt = $conn->prepare($query);
  	$stmt->execute();

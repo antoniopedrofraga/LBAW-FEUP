@@ -4,11 +4,11 @@
 	<div class="main-carousel">
 		{foreach $recentAuctions as $recentAuction}
 		<div class="portfolio-item hvr-grow">
-			<a href="#">
+			<a href="../pages/auction.php?id={$recentAuction.idleilao}">
 				<img class="carousel-image" alt="" width=200 height=200 style='background: url("https://placehold.it/800x600") 50% 50% no-repeat; background-size: cover;'>
 			</a>
 			<h3>
-				<a href="#" class="main-color auction-name">{$recentAuction.nome}</a>
+				<a href="../pages/auction.php?id={$recentAuction.idleilao}" class="main-color auction-name">{$recentAuction.nome}</a>
 			</h3>
 			<small>
 				<p><span class="glyphicon glyphicon-euro"></span>

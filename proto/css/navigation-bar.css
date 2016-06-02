@@ -2,6 +2,14 @@
 	float: right;
 }
 
+.badge-notify{
+   background:red !important;
+   position:relative;
+   padding-bottom: 0.5em;
+   bottom: 1.0em;
+   left: -10%;
+}
+
 .main-color {
 	color: #f0ad4e;
 }

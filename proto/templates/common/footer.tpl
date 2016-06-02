@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html>
-
 <div class="container">
 	<hr>
 	<!-- Footer -->
@@ -13,4 +10,3 @@
 	</footer>
 
 </div>
-</html>
