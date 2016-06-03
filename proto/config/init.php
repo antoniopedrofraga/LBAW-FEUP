@@ -7,7 +7,7 @@
   $BASE_DIR = '/opt/lbaw/lbaw1512/public_html/proto/'; //FIXME
   $BASE_URL = '/~lbaw1512/proto/'; //FIXME
 
-  $conn = new PDO('pgsql:host=dbm;dbname=lbaw1512', 'lbaw1512', 'TB38Y0K5'); //FIXME
+  $conn = new PDO('pgsql:host=dbm;dbname=lbaw1512', 'lbaw1512', 'queremos20'); //FIXME
   $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

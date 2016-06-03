@@ -4,12 +4,11 @@
   	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   	$conn->exec('SET SCHEMA \'proto\'');
 
-  	$username = $_GET["username"];
+  	$id = $_GET["id"];
 
-  	$query = "SELECT * FROM Notificacao, Membro WHERE Notificacao.idUtilizador = Membro.idUtilizador AND Membro.nomeUtilizador = '?'";
-  	//"SELECT * FROM Leilao WHERE nome LIKE '%" . $string . "%' LIMIT 5";
+  	$query = "SELECT * FROM Leilao WHERE idLeiloeiro = ? ORDER BY dataColocacao";
   	$stmt = $conn->prepare($query);
- 	$stmt->execute(array($username));
+ 	$stmt->execute(array($id));
  	$notifications = $stmt->fetchAll();
  	echo json_encode($notifications);
 ?>

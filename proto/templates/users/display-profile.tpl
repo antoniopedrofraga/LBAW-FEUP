@@ -19,6 +19,7 @@
 			{include file='users/tabs/display-feedback.tpl'}
 		{else if $tabIndex == 2}
 			{include file='users/tabs/display-myauctions.tpl'}
+			<script src="../js/myAuctions.js"></script>
 		{else if $tabIndex == 6}
 			{include file='users/tabs/display-config.tpl'}
 		{/if}

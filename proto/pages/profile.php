@@ -8,7 +8,10 @@
     	include_once('../database/users.php');
     	$id = (int)$_GET['id'];
         $tab = (int)$_GET['tab'];
-    	$_SESSION["username"];
+    	$username = $_SESSION["username"];
+        $user = getMemberByName($username);
+
+        $smarty->assign('user', $user);
         $smarty->assign('tabIndex', $tab);
         $smarty->assign('id', $id);
     	$smarty->display('home/profile.tpl');
