@@ -12,7 +12,6 @@
 <!-- Include Date Range Picker -->
 <script type="text/javascript" src="../daterangepicker/daterangepicker.js"></script>
 <link rel="stylesheet" type="text/css" href="../daterangepicker/daterangepicker.css" />
-<script src="../js/flickity.js"></script>
 
 </body>
 {include file='common/footer.tpl'}

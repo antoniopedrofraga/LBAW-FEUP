@@ -11,7 +11,7 @@
  	if ($type == "Admin") {
  		header('Location: ../../pages/admin.php?id=' . $member['idutilizador']);
  	} else if ($type == "Cliente") {
-		header('Location: ../../pages/profile.php?id=' . $member['idutilizador']);
+		header('Location: ../../pages/profile.php?id=' . $member['idutilizador'] . '&tab=1');
  	} else {
  		$_SESSION['error_messages'][] = 'Could not get your member type';
     	header('Location: ../../pages/home.php');
