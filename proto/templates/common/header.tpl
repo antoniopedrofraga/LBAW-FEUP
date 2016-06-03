@@ -46,24 +46,21 @@
   </nav>
 
   {if !empty($ERROR_MESSAGES)}
-  <div id="error_messages">
     {foreach $ERROR_MESSAGES as $error}
     <div class="alert alert-danger">
       <a href="#" class="close" data-dismiss="alert">&times;</a>
       <strong>Error!</strong> {$error}.
     </div>
     {/foreach}
-  </div>
   {/if}
 
   {if !empty($SUCCESS_MESSAGES)}
-  <div id="success_messages">
     {foreach $SUCCESS_MESSAGES as $success}
     <div class="alert alert-success">
       <a href="#" class="close" data-dismiss="alert">&times;</a>
       <strong>Success!</strong> {$success}.
-    </div>
     {/foreach}
   </div>
   {/if}
 
+  <script src="../js/index.js"></script>

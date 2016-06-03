@@ -32,7 +32,7 @@ $('#searchTextBox').keyup(function() {
       output += "<li onclick='window.location=\"../pages/auction.php?id=" + data[auction].idleilao + "\"'>";
       output += "<div>";
       output += '<div class="image"><img src="https://placehold.it/800x600"></div>';
-      output += '<p class="name">' + data[auction].nome + '</p>';
+      output += '<p class="name"><a>' + data[auction].nome + '</a></p>';
       output += '</div>';
       output += '</li>';
     }

@@ -34,3 +34,12 @@
     padding-left: 10px;
     color: #d17581;
 }
+
+.navbar {
+  margin-bottom: 0 !important;
+}
+
+.alert {
+    position: fixed !important;
+    width: 100%;
+}

@@ -14,6 +14,8 @@
   		$auctionsCount = getAuctionsCount();
       $counter = unreadNotifications($name);
 
+      $membro = getMemberByName($name);
+
       $smarty->assign('notifCounter', $counter);
   		$smarty->assign('recentAuctions', $recentAuctions);
       $smarty->assign('auctionsByBid', $auctionsByBid);

@@ -11,7 +11,7 @@
       <div class="collapse navbar-collapse user-space" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li>
-            <a id="username" href="#" title="Página do utilizador"><span class="glyphicon glyphicon-user"></span>{$USERNAME}</a>
+            <a id="username" href="../actions/users/redirectUser.php?username={$USERNAME}" title="Página do utilizador"><span class="glyphicon glyphicon-user"></span>{$USERNAME}</a>
           </li>
           <li>
             <a id="create-auction" class="glyphicon glyphicon-plus-sign" href="#" title="Criar leilão"></a>

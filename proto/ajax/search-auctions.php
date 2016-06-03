@@ -6,7 +6,7 @@
 
   	$string = $_GET["text"];
 
-  	$query = "SELECT * FROM Leilao WHERE to_tsvector('portuguese', descricao) @@ to_tsquery('portuguese', '" . $string . "') OR nome LIKE '%" . $string . "%' LIMIT 5";
+  	$query = "SELECT * FROM Leilao WHERE to_tsvector('portuguese', descricaocompleta) @@ to_tsquery('portuguese', '" . $string . "') OR to_tsvector('portuguese', descricaobreve) @@ to_tsquery('portuguese', '" . $string . "') OR LOWER(nome) LIKE LOWER('%" . $string . "%') LIMIT 5";
   	//"SELECT * FROM Leilao WHERE nome LIKE '%" . $string . "%' LIMIT 5";
   	$stmt = $conn->prepare($query);
  	$stmt->execute();

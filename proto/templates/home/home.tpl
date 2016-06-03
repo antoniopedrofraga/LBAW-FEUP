@@ -19,7 +19,7 @@
 <link rel="stylesheet" type="text/css" href="../daterangepicker/daterangepicker.css" />
 
 <script src="../lib/flickity/flickity.js"></script>
-<script src="../js/index.js"></script>
+<script src="../js/flickity.js"></script>
 </body>
 
 {include file='common/footer.tpl'}

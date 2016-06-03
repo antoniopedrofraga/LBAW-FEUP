@@ -24,6 +24,13 @@ function getAuctionerByAuctionId($id) {
   return $result;
 }
 
+function getMemberByName($name) {
+  global $conn;
+  $stmt = $conn->prepare("SELECT * FROM Membro WHERE nomeUtilizador = ?");
+  $stmt->execute(array($name));
+  return $stmt->fetch();
+}
+
 function isLoginCorrect($username, $password) {
   global $conn;
   $stmt = $conn->prepare("SELECT * FROM Membro WHERE nomeUtilizador = ? AND password = ?");
