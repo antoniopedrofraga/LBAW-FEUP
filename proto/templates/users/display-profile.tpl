@@ -18,8 +18,14 @@
 		{if $tabIndex == 1}
 			{include file='users/tabs/display-feedback.tpl'}
 		{else if $tabIndex == 2}
-			{include file='users/tabs/display-myauctions.tpl'}
-			<script src="../js/myAuctions.js"></script>
+			{include file='users/tabs/display-auctions.tpl'}
+			<script src="../js/auctions/myAuctions.js"></script>
+		{else if $tabIndex == 3}
+			{include file='users/tabs/display-auctions.tpl'}
+			<script src="../js/auctions/myBids.js"></script>
+		{else if $tabIndex == 4}
+			{include file='users/tabs/display-chat.tpl'}
+			<script src="../js/rcvdMessages.js"></script>
 		{else if $tabIndex == 6}
 			{include file='users/tabs/display-config.tpl'}
 		{/if}

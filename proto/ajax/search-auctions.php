@@ -6,10 +6,10 @@
 
   	$string = $_GET["text"];
 
-  	$query = "SELECT * FROM Leilao WHERE to_tsvector('portuguese', descricaocompleta) @@ to_tsquery('portuguese', '" . $string . "') OR to_tsvector('portuguese', descricaobreve) @@ to_tsquery('portuguese', '" . $string . "') OR LOWER(nome) LIKE LOWER('%" . $string . "%') LIMIT 5";
+  	$query = "SELECT * FROM Leilao WHERE to_tsvector('portuguese', descricaocompleta) @@ to_tsquery('portuguese', ?) OR to_tsvector('portuguese', descricaobreve) @@ to_tsquery('portuguese', ?) OR LOWER(nome) LIKE LOWER(?) LIMIT 5";
   	//"SELECT * FROM Leilao WHERE nome LIKE '%" . $string . "%' LIMIT 5";
   	$stmt = $conn->prepare($query);
- 	$stmt->execute();
+ 	$stmt->execute(array($string, $string, "%$_GET[text]%"));
  	$auctions = $stmt->fetchAll();
  	echo json_encode($auctions);
 ?>
