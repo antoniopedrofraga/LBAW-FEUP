@@ -9,7 +9,7 @@
 	$offset = $_GET["offset"];
 	$limit = $_GET["limit"];
 
-	$query = "SELECT * FROM Mensagem, Membro WHERE Mensagem.idRecetor = ? AND Mensagem.idemissor = Membro.idutilizador ORDER BY dataMensagem OFFSET ? LIMIT ?";
+	$query = "SELECT * FROM Mensagem, Membro WHERE Mensagem.idEmissor = ? AND Mensagem.idRecetor = Membro.idutilizador ORDER BY dataMensagem OFFSET ? LIMIT ?";
 	$stmt = $conn->prepare($query);
 	$stmt->execute(array($id, $offset, $limit));
 	$messages = $stmt->fetchAll();

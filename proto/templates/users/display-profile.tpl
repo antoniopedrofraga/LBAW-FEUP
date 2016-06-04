@@ -25,7 +25,7 @@
 			<script src="../js/auctions/myBids.js"></script>
 		{else if $tabIndex == 4}
 			{include file='users/tabs/display-chat.tpl'}
-			<script src="../js/rcvdMessages.js"></script>
+			<script src="../js/messages/get-rcv-msgs.js"></script>
 		{else if $tabIndex == 6}
 			{include file='users/tabs/display-config.tpl'}
 		{/if}
