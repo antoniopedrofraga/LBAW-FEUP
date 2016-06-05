@@ -54,6 +54,8 @@ function getNotif() {
     if (data == null || data.length == 0)
       output = "<li>Sem novas notificações</li>";
 
+    output += '<a href="../pages/notifications.php" class="btn btn-warning">Ver todas</a>';
+
     $("#notificationsDropdown").append(output);
     $("#notifications").empty();
 

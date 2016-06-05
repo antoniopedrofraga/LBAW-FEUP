@@ -10,7 +10,13 @@
         $tab = (int)$_GET['tab'];
     	$username = $_SESSION["username"];
         $user = getMemberByName($username);
-
+        
+        if ($user['idutilizador'] != $id) {
+            $_SESSION['error_messages'][] = 'Não pode aceder a um perfil que não o seu';
+            header('Location: ../pages/home.php');
+        }
+        $counter = unreadNotifications($username);
+        $smarty->assign('notifCounter', $counter);
         $smarty->assign('user', $user);
         $smarty->assign('tabIndex', $tab);
         $smarty->assign('id', $id);

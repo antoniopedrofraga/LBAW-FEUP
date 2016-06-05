@@ -9,17 +9,14 @@
     	$id = (int)$_GET['id'];
     	$name = $_SESSION["username"]; 
 
-        $auctionerObj = getAuctionerByAuctionId($id);
-    	$result = getAuctionById($id);
-        $auctionCounter = getAuctionCountByUserId($auctionerObj['idutilizador']);
         $counter = unreadNotifications($name);
+        $user = getMemberById($id);
  
         $smarty->assign('username', $_SESSION["username"]);
     	$smarty->assign('notifCounter', $counter);
-        $smarty->assign('auctioner', $auctionerObj);
-        $smarty->assign('auctionCount', $auctionCounter);
-    	$smarty->assign('auction', $result[0]);
-    	$smarty->display('home/auction.tpl');
+        $smarty->assign('user', $user);
+
+    	$smarty->display('home/feedbackpage.tpl');
     }
 
 ?>

@@ -6,13 +6,18 @@
   	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   	$conn->exec('SET SCHEMA \'proto\'');
 
-  	$nome = $_GET["nome"];
-  	$description = $_GET["description"];
+  	$brandid = $_GET["brandId"];
+    $userid = $_GET["userId"];
+  	$checked = $_GET["checked"];
 
- 	$query = "UPDATE Preferencia SET descricaoMembro = ? WHERE idUtilizador = ?";
+    if ($checked == 'true') {
+      $query = "INSERT INTO Preferencias (idMarca, idCliente) VALUES (?, ?)";
+    } else if ($checked == 'false') {
+      $query = "DELETE FROM Preferencias WHERE idMarca = ? AND idCliente = ?";
+    }
   	$stmt = $conn->prepare($query);
- 	$stmt->execute(array($description, $id));
- 	$stmt->fetchAll();
+ 	  $stmt->execute(array($brandid, $userid));
+ 	  $stmt->fetchAll();
 
  	} catch (PDOException $e) {
     	print $e->getMessage ();

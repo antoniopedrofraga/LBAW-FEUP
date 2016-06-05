@@ -47,11 +47,11 @@
                             <div class="form-group">
                                 <label class="icon-title" for="comment"><span class="glyphicon glyphicon-user"></span>    Destinatário</label>
                                 <br>
-                                <textarea name="username" class="form-control" rows="1" maxlength="30" placeholder="Username do destinatário"></textarea>
+                                <textarea name="username" class="form-control" rows="1" maxlength="30" placeholder="Username do destinatário" required></textarea>
                                 <br>
                                 <label class="icon-title" for="comment"><span class="glyphicon glyphicon-pencil"></span>    Mensagem</label>
                                 <br>
-                                <textarea name="message" class="form-control" rows="4" maxlength="5000" placeholder="Escreve a mensagem a enviar"></textarea>
+                                <textarea name="message" class="form-control" rows="4" maxlength="5000" placeholder="Escreve a mensagem a enviar" required></textarea>
                             </div>
                             <div class="actions">
                                 <input type="submit" value="Enviar" name="submit" id="submitButton" class="btn btn-info pull-right" title="Clica para enviar a tua mensagem!" />

@@ -38,32 +38,6 @@
 		</div>
 	</div>
 	<hr>
-	<div class="form-group">
-		<label class="icon-title" for="comment"><span class="glyphicon glyphicon-bell"></span>    Notificações a receber</label>
-		<br>
-		<div class="row">
-			<div class="col-md-3">
-				<label><input type="checkbox" value="">  Licitações ultrapassadas</label>
-			</div>
-			<div class="col-md-3">
-				<label><input type="checkbox" value="">  Novos leilões na lista de desejos</label>
-			</div>
-			<div class="col-md-3">
-				<label><input type="checkbox" value="">  Novas mensagens</label>
-			</div>
-			<div class="col-md-3">
-				<label><input type="checkbox" value="">  Fim de leilão</label>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<label><input type="checkbox" value="">  Licitações nos meus leilões</label>
-			</div>
-			<div class="col-md-3">
-				<label><input type="checkbox" value="">  Fim de leilões em que licitei</label>
-			</div>
-		</div>
-	</div>
 	<hr>
 	<input id="saveBtn" type="submit" name="guardar" class="btn btn-default pull-right" value="Guardar">
 </form>

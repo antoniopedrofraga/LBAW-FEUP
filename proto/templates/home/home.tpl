@@ -6,10 +6,33 @@
 <link href="../css/hover.min.css" rel="stylesheet">
 <link rel="stylesheet" href="../lib/flickity/flickity.css" media="screen">
 
-	<div class="container">
-		{include file='auctions/recents.tpl'}
-		{include file='auctions/by-bid.tpl'}
+<div class="container">
+	{include file='auctions/recents.tpl'}
+	{include file='auctions/by-bid.tpl'}
+	{foreach $preferences as $preference}
+	<div class="panel-body">
+		<h1 class="page-header">Marca {$preference.nome}
+		</h1>
+		{if empty($preference.auctions)}
+		<br>
+		<br>
+		<h3 class="text-muted" style="text-align: center;">Não há registo de leilões com esta marca</h3>
+		<br>
+		<br>
+		{else if count($preference.auctions) < 4}
+		{foreach $preference.auctions as $auction}
+		{include file='auctions/display-portfolio-items.tpl'}
+		{/foreach}
+		{else}
+		<div class="main-carousel">
+			{foreach $preference.auctions as $auction}
+			{include file='auctions/display-portfolio-items.tpl'}
+			{/foreach}
+		</div>
+		{/if}
 	</div>
+	{/foreach}
+</div>
 
 {include file='popups/createAuction.tpl'}
 

@@ -2,14 +2,14 @@
 
  function getRecentAuctions() {
  	global $conn;
- 	$stmt = $conn->prepare("SELECT * FROM Leilao ORDER BY dataColocacao DESC LIMIT 12");
+ 	$stmt = $conn->prepare("SELECT * FROM Leilao ORDER BY dataColocacao DESC LIMIT 8");
  	$stmt->execute();
  	return $stmt->fetchAll();
  }
 
  function getAuctionsByBid() {
  	global $conn;
- 	$stmt = $conn->prepare("SELECT * FROM Leilao ORDER BY licitacaoAtual DESC LIMIT 12");
+ 	$stmt = $conn->prepare("SELECT * FROM Leilao ORDER BY licitacaoAtual DESC LIMIT 8");
  	$stmt->execute();
  	return $stmt->fetchAll();
  }

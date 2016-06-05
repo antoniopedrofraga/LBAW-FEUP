@@ -12,14 +12,18 @@
   		$recentAuctions = getRecentAuctions();
       $auctionsByBid = getAuctionsByBid();
   		$auctionsCount = getAuctionsCount();
+
       $counter = unreadNotifications($name);
 
       $membro = getMemberByName($name);
+
+      $homePreferences = getHomePreferences($membro['idutilizador']);
 
       $smarty->assign('notifCounter', $counter);
   		$smarty->assign('recentAuctions', $recentAuctions);
       $smarty->assign('auctionsByBid', $auctionsByBid);
   		$smarty->assign('auctionsCount', $auctionsCount);
+      $smarty->assign('preferences', $homePreferences);
     	$smarty->display('home/home.tpl');
 
     }

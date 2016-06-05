@@ -31,10 +31,31 @@ function getMemberByName($name) {
   return $stmt->fetch();
 }
 
+function getMemberById($id) {
+  global $conn;
+  $stmt = $conn->prepare("SELECT * FROM Membro WHERE idUtilizador = ?");
+  $stmt->execute(array($id));
+  return $stmt->fetch();
+}
+
 function isLoginCorrect($username, $password) {
   global $conn;
   $stmt = $conn->prepare("SELECT * FROM Membro WHERE nomeUtilizador = ? AND password = ?");
   $stmt->execute(array($username, sha1($password)));
   return $stmt->fetch() == true;
+}
+
+function getHomePreferences($id) {
+  global $conn;
+  $stmt = $conn->prepare("SELECT * FROM Marca WHERE idMarca IN (SELECT idMarca FROM Preferencias WHERE idCliente = ?)");
+  $stmt->execute(array($id));
+  $homePreferences = $stmt->fetchAll();
+  foreach ($homePreferences as &$brand) {
+    $stmt = $conn->prepare("SELECT * FROM Leilao WHERE idMarca = ? LIMIT 8");
+    $stmt->execute(array($brand['idmarca']));
+    $auctions = $stmt->fetchAll();
+    $brand['auctions'] = $auctions;
+  }
+  return $homePreferences;
 }
 ?>
