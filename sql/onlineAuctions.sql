@@ -35,6 +35,7 @@ CREATE TABLE Membro
 	nomeCivil TEXT,
         tipoMembro VARCHAR(7),
     dataInscricao TIMESTAMP NOT NULL DEFAULT NOW(),
+    descricaoMembro TEXT,
  
 	PRIMARY KEY (idUtilizador),
 	UNIQUE (nomeUtilizador),
@@ -91,6 +92,7 @@ CREATE TABLE Notificacao
 	idUtilizador INTEGER NOT NULL,
 	texto TEXT NOT NULL,
 	dataNotificacao TIMESTAMP NOT NULL DEFAULT NOW(),
+	read BOOLEAN NOT NULL DEFAULT false,
  
 	PRIMARY KEY (idNotificacao),
 	FOREIGN KEY (idUtilizador)

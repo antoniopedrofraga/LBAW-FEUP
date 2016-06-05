@@ -29,7 +29,7 @@ function getPageFromIndex(userid, page) {
 		if (data == null || data.length == 0) {
 			output += '<hr>';
 			output += '<div class="row">';
-			output += '<h3>Não foram encontrados leilões...</h3>';
+			output += '<h3 style="text-align:center;">Não foram encontrados leilões...</h3>';
 			output += '</div>';
 		} else {
 			output += '<div class="row text-center">';

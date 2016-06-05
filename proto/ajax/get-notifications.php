@@ -6,10 +6,15 @@
 
   	$username = $_GET["username"];
 
-  	$query = "SELECT * FROM Notificacao, Membro WHERE Notificacao.idUtilizador = Membro.idUtilizador AND Membro.nomeUtilizador = '?'";
-  	//"SELECT * FROM Leilao WHERE nome LIKE '%" . $string . "%' LIMIT 5";
+  	$query = "SELECT * FROM Notificacao, Membro WHERE Notificacao.idUtilizador = Membro.idUtilizador AND Notificacao.read = false AND Membro.nomeUtilizador = ? ORDER BY dataNotificacao";
   	$stmt = $conn->prepare($query);
  	$stmt->execute(array($username));
  	$notifications = $stmt->fetchAll();
+
+ 	$query = "UPDATE Notificacao SET read = true WHERE idUtilizador IN (SELECT idUtilizador FROM Membro WHERE nomeUtilizador = ?)";
+  	$stmt = $conn->prepare($query);
+ 	$stmt->execute(array($username));
+ 	$stmt->fetchAll();
+
  	echo json_encode($notifications);
 ?>

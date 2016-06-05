@@ -47,15 +47,16 @@ function getNotif() {
     for (notificacao in data) {
       output += "<li>";
       output += '<div onclick="#">';
-      output += '<div class="image"><img src="https://placehold.it/800x600"></div>';
       output += '<p class="name">' + data[notificacao].texto + '</p>';
       output += '</div>';
       output += '</li>';
     }
     if (data == null || data.length == 0)
-      output = "<li>Sem notificações</li>";
+      output = "<li>Sem novas notificações</li>";
 
     $("#notificationsDropdown").append(output);
+    $("#notifications").empty();
+
   });
 
  };

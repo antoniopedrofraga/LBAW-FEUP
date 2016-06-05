@@ -28,6 +28,7 @@
 			<script src="../js/messages/get-rcv-msgs.js"></script>
 		{else if $tabIndex == 6}
 			{include file='users/tabs/display-config.tpl'}
+			<script src="../js/users/config.js"></script>
 		{/if}
 	</div>
 

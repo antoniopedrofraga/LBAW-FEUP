@@ -9,7 +9,7 @@ function createUser($name, $username, $email, $password, $birthday) {
 
 function unreadNotifications($name) {
   global $conn;
-  $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM Notificacao, Membro WHERE Notificacao.idUtilizador = Membro.idUtilizador AND Membro.nomeUtilizador = ?");
+  $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM Notificacao, Membro WHERE Notificacao.idUtilizador = Membro.idUtilizador AND Notificacao.read = false AND Membro.nomeUtilizador = ?");
   $stmt->execute(array($name));
   $result = $stmt->fetch();    
   return $result['count'];

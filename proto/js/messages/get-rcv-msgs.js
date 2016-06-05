@@ -33,8 +33,8 @@ function getRcvMessages(userid) {
 			output = '';
 			updateOffset(data.length);
 			for (message in data) {
-				output += '<a href="#" class="list-group-item">';
-				output += '<span class="name" style="min-width: 120px; display: inline-block;">' + data[message].nomeutilizador + '</span>';
+				output += '<a href="#" class="list-group-item message">';
+				output += '<span class="name" style="min-width: 120px; display: inline-block;">de: ' + data[message].nomeutilizador + '</span>';
 				output += '<span class="text-muted">' + data[message].texto + '</span> <span class="badge" title="' + data[message].horamensagem + '">' + data[message].datamensagem + '</span>'
 				output += '</a>';
 			}
@@ -42,6 +42,7 @@ function getRcvMessages(userid) {
 				output +=  '<a href="#" class="list-group-item"><span class="text-center">Não tem mensagens recebidas.</span></a>';
 			}
 			messages.append(output);
+			addModalClickListener();
 		});
 	});
 
@@ -70,8 +71,8 @@ function getSentMessages(userid) {
 			output = '';
 			updateOffset(data.length);
 			for (message in data) {
-				output += '<a href="#" class="list-group-item">';
-				output += '<span class="name" style="min-width: 120px; display: inline-block;">Para: ' + data[message].nomeutilizador + '</span>';
+				output += '<a href="#" class="list-group-item message">';
+				output += '<span class="name" style="min-width: 120px; display: inline-block;">para: ' + data[message].nomeutilizador + '</span>';
 				output += '<span class="text-muted">' + data[message].texto + '</span> <span class="badge" title="' + data[message].horamensagem + '">' + data[message].datamensagem + '</span>'
 				output += '</a>';
 			}
@@ -79,7 +80,7 @@ function getSentMessages(userid) {
 				output +=  '<a href="#" class="list-group-item"><span class="text-center">Não enviou nenhuma mensagem.</span></a>';
 			}
 			messages.append(output);
-
+			addModalClickListener();
 		});
 	});
 	
@@ -94,6 +95,21 @@ function getSentMessages(userid) {
 			page++;
 			getSentMessages(id);
 		}
+	});
+}
+
+function addModalClickListener() {
+	$('.message').on('click', function () {
+		$('#chatModal .modal-title').text('');
+		var date = $(this).find('.badge').text();
+		var time = $(this).find('.badge').attr('title');
+		var badge = '<span class="badge">' + date + " às " + time + '</span>';
+		var title = $(this).find('.name').text();
+		$('#chatModal .modal-title').append("Mensagem " + title + " " + badge);
+		$('#chatModal .modal-body p').text('');
+		var text = $(this).find('.text-muted').text();
+		$('#chatModal .modal-body p').append(text);
+		$('#chatModal').modal('show');
 	});
 }
 

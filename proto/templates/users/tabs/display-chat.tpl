@@ -4,7 +4,7 @@
     <div class="col-sm-9 col-md-10">
         <!-- Split button -->
         <div class="pull-right" id="buttons">
-            <span class="text-muted" id="offset"><b>1</b>–<b>50</b> of <b>277</b></span>
+            <span class="text-muted" id="offset"><b>0</b>–<b>0</b> of <b>0</b></span>
             <div class="btn-group btn-group-sm">
                 <button type="button" class="btn btn-default" id="paginate-left">
                     <span class="glyphicon glyphicon-chevron-left"></span>
@@ -42,16 +42,19 @@
             </div>
             <div class="tab-pane fade in" id="create">
                 <div class="list-group-item">
-                    <form name="enq" method="post" action="email/">
+                    <form name="enq" method="post" action="../actions/messages/send-message.php">
                         <fieldset>
-                            <div class = "row">
-                                <input type="text" name="email" id="email" value="" class="input-block-level" placeholder="Email" />
-                            </div>
-                            <div class = "row">
-                                <textarea rows="11" name="message" id="message" class="input-block-level" placeholder="Comments"></textarea>
+                            <div class="form-group">
+                                <label class="icon-title" for="comment"><span class="glyphicon glyphicon-user"></span>    Destinatário</label>
+                                <br>
+                                <textarea name="username" class="form-control" rows="1" maxlength="30" placeholder="Username do destinatário"></textarea>
+                                <br>
+                                <label class="icon-title" for="comment"><span class="glyphicon glyphicon-pencil"></span>    Mensagem</label>
+                                <br>
+                                <textarea name="message" class="form-control" rows="4" maxlength="5000" placeholder="Escreve a mensagem a enviar"></textarea>
                             </div>
                             <div class="actions">
-                                <input type="submit" value="Send Your Message" name="submit" id="submitButton" class="btn btn-info pull-right" title="Click here to submit your message!" />
+                                <input type="submit" value="Enviar" name="submit" id="submitButton" class="btn btn-info pull-right" title="Clica para enviar a tua mensagem!" />
                             </div>  
                         </fieldset>
                     </form>             
@@ -61,3 +64,6 @@
         </div>
     </div>
 </div>
+
+
+{include file='users/tabs/display-message.tpl'}
