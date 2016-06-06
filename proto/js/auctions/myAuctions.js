@@ -10,14 +10,15 @@ function getPageFromIndex(userid, page) {
 		var limit = auction + size;
 		for (auction; auction < limit; auction++) {
 			output += "<hr>";
-			output += '<div class="row">';
-			output += '<div class="col-md-3">';
+			output += '<div class="row well">';
+			output += '<a type="button" class="close pull-right" title="Remover leilão">&times;</button>';
+			output += '<div class="col-md-4">';
 			output += '<a href="#">';
 			var image = data[auction].imagelink != null ? data[auction].imagelink : 'http://placehold.it/200x200';
 			output += '<img class="carousel-image" alt="" width="200" height="200" style="background: url(' + image +') 50% 50% no-repeat; background-size: cover;">'
 			output += '</a>';
 			output += '</div>';
-			output += '<div class="col-md-9">';
+			output += '<div class="col-md-8">';
 			output += '<h3>' + data[auction].nome + '</h3>';
 			output += '<h4>Aberto</h4>';
 			output += '<p>' + data[auction].descricaobreve + '</p>';

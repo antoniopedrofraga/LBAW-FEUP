@@ -21,12 +21,14 @@
         <h3>Detalhes</h3>
         <small>
             <p><span class="glyphicon glyphicon-euro"></span> {if $auction.licitacaoatual > 0}{$auction.licitacaoatual}{else}{$auction.licitacaobase}{/if}</p>
-            <p><span class="glyphicon glyphicon-time"></span> 3 dias, 9 horas, 20 minutos</p> 
         </small>
+        <big>
+        <p class="badge"><span class="glyphicon glyphicon-time"></span> <span id="clock"></span></p>
+        </big>
 
         <form class="span4 offset4 text-center">
             <input type='text' placeholder="{if $auction.licitacaoatual > 0}{$auction.licitacaoatual}{else}{$auction.licitacaobase}{/if}€">
-            <button type="button" class="btn btn-warning btn-lg round bid-btn {if $auctioner.nomeutilizador == $username}disabled{/if}">Licitar!</button>
+            <button id='licitar' type="button" class="btn btn-warning btn-lg round bid-btn {if $auctioner.nomeutilizador == $username}disabled{/if}">Licitar!</button>
         </form>
     </div>
     <div class="well col-md-3 bid-well">
@@ -70,29 +72,49 @@
 
 
 <div class="modal fade" id="messageModal" role="dialog">
-<div class="modal-dialog">
-    <form name="enq" method="post" action="../actions/messages/send-message.php">
-        <div class="modal-content">
-            <fieldset>
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Contactar</h4>
-                <br>
-            </div>
-            <div class="modal-body" style="word-wrap: break-word;">
-                <label class="icon-title" for="comment"><span class="glyphicon glyphicon-user"></span>    Destinatário</label>
-                <br>
-                <textarea name="username" class="form-control" rows="1" maxlength="30" placeholder="Username do destinatário">{$auctioner.nomeutilizador}</textarea>
-                <br>
-                <label class="icon-title" for="comment"><span class="glyphicon glyphicon-pencil"></span>    Mensagem</label>
-                <br>
-                <textarea name="message" class="form-control" rows="4" maxlength="5000" placeholder="Escreve a mensagem a enviar" required></textarea>
-            </div>
-            <div class="modal-footer">
-                <input type="submit" value="Enviar" name="submit" id="submitButton" class="btn btn-info pull-right" title="Clica para enviar a tua mensagem!" />
-            </div>
-        </fieldset>
-    </div>
+    <div class="modal-dialog">
+        <form name="enq" method="post" action="../actions/messages/send-message.php" novalidate>
+            <div class="modal-content">
+                <fieldset>
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Contactar</h4>
+                    <br>
+                </div>
+                <div class="modal-body" style="word-wrap: break-word;">
+                    <label class="icon-title" for="comment"><span class="glyphicon glyphicon-user"></span>    Destinatário</label>
+                    <br>
+                    <textarea name="username" class="form-control" rows="1" maxlength="30" placeholder="Username do destinatário">{$auctioner.nomeutilizador}</textarea>
+                    <br>
+                    <label class="icon-title" for="comment"><span class="glyphicon glyphicon-pencil"></span>    Mensagem</label>
+                    <br>
+                    <textarea name="message" class="form-control" rows="4" maxlength="5000" placeholder="Escreve a mensagem a enviar" required></textarea>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" value="Enviar" name="submit" id="submitButton" class="btn btn-info pull-right" title="Clica para enviar a tua mensagem!" />
+                </div>
+            </fieldset>
+        </div>
 
+    </div>
 </div>
-</div>
+
+<script src="../lib/countdown-master/src/countdown.js"></script>
+<script type="text/javascript">
+    $('#clock').countdown('{$auction.datafinal}')
+    .on('update.countdown', function(event) {
+        var format = '%H:%M:%S';
+        if(event.offset.days > 0) {
+            format = '%-d dia%!d ' + format;
+        }
+        if(event.offset.weeks > 0) {
+            format = '%-w semana%!w ' + format;
+        }
+        $(this).html(event.strftime(format));
+    })
+    .on('finish.countdown', function(event) {
+        $(this).html('Este leilão terminou')
+        .parent().addClass('disabled');
+        $('#licitar').addClass('disabled');
+    });
+</script>

@@ -15,6 +15,7 @@
 }
 
 function getImagesByAuctionId($id) {
+  global $conn;
   $stmt = $conn->prepare("SELECT * FROM Imagem WHERE idleilao = ?");
   $stmt->execute(array($id));
   $imagens = $stmt->fetchAll();
