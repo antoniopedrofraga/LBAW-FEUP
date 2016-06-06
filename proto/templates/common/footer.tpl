@@ -10,3 +10,5 @@
 	</footer>
 
 </div>
+
+<script src="../js/index.js"></script>

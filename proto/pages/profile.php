@@ -16,6 +16,8 @@
             header('Location: ../pages/home.php');
         }
         $counter = unreadNotifications($username);
+
+        $smarty->assign('username', $_SESSION["username"]);
         $smarty->assign('notifCounter', $counter);
         $smarty->assign('user', $user);
         $smarty->assign('tabIndex', $tab);

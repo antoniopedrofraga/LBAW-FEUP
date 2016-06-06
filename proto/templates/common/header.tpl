@@ -62,5 +62,3 @@
     {/foreach}
   </div>
   {/if}
-
-  <script src="../js/index.js"></script>

@@ -26,3 +26,9 @@ h4 {
 textarea {
    resize: none;
 }
+
+.error {
+    border-top:1px solid #99182c;
+    border-right:1px solid #99182c;
+    border-bottom:1px solid #99182c;
+}

@@ -2,9 +2,12 @@
   session_set_cookie_params(3600, '/~lbaw1512'); //FIXME
   session_start();
 
-  error_reporting(E_ERROR | E_WARNING); // E_NOTICE by default
+  $BASE_DIR = '/opt/lbaw/lbaw1512/public_html/proto/';
 
-  $BASE_DIR = '/opt/lbaw/lbaw1512/public_html/proto/'; //FIXME
+  error_reporting(e_all);
+  ini_set('log_errors',1);
+  ini_set('error_log', $BASE_DIR . '/log/errorlog.log');
+
   $BASE_URL = '/~lbaw1512/proto/'; //FIXME
 
   $conn = new PDO('pgsql:host=dbm;dbname=lbaw1512', 'lbaw1512', 'queremos20'); //FIXME
@@ -23,7 +26,6 @@
   $smarty->assign('ERROR_MESSAGES', $_SESSION['error_messages']);  
   $smarty->assign('FIELD_ERRORS', $_SESSION['field_errors']);
   $smarty->assign('SUCCESS_MESSAGES', $_SESSION['success_messages']);
-  $smarty->assign('FORM_VALUES', $_SESSION['form_values']);
   $smarty->assign('USERNAME', $_SESSION['username']);
   
   unset($_SESSION['success_messages']);
