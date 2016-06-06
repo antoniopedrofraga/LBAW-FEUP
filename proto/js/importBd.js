@@ -21,11 +21,43 @@ $(document).on('ready', function() {
 			'showZoom': false,
 			'showRemove': false,
 		},
-		uploadUrl: "../actions/upload/upload-image.php",
+		uploadUrl: "../actions/upload/create-auction.php",
 		uploadExtraData: function() {
 			return {
-				username: username
+				enddate: $('#end-date').val(),
+				nome: $('#nome').val(),
+				licitacaoBase: $('#licitacaoBase').val(),
+				descricaocompleta: $('#descricaocompleta').val(),
+				descricaobreve: $('#descricaobreve').val(),
+				brand: $('#brand').val()
 			};
+		}
+	});
+
+	$("#images").on('filebatchuploadcomplete', function(event, data, previewId, index) {
+		var form = data.form, files = data.files, extra = data.extra,
+		response = data.response, reader = data.reader;
+		location.reload();
+	});
+
+	$("#create-auction-modal").submit(function( event ) {
+		var endDate = new Date($('#end-date').val());
+		var startDate = new Date(getCurrentDate());
+		console.log(endDate + " vs. " + startDate);
+		if (endDate <= startDate) {
+			$('#end-date').after('<span="invalid-error" style="color: red">Insere uma data futura.</span>');
+			$('#end-date').css({"border-top":"1px solid #99182c","border-right": "1px solid #99182c", "border-left": "1px solid #99182c",  "border-bottom": "1px solid #99182c", "background-color" : "#ffcccc"});
+			event.preventDefault();
+		} else {
+			$("#images").fileinput("upload").fileinput('disable');;
+			event.preventDefault();
+		}
+	});
+
+	$('#licitacaoBase').on('change', function() {
+		var $this = $(this);
+		if ($this.val() < 0.01) {
+			$this.val('0.01');
 		}
 	});
 
@@ -46,17 +78,24 @@ $(document).on('ready', function() {
 
 });
 
+function getDatesDiferenceInDays() {
+	var startDate = new Date(getCurrentDate());
+	var endDate = new Date($('#end-date').val());
+	var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+	var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+}
+
 
 
 function getBrands() {
 	$.getJSON("../ajax/get-brands.php", function(data) {
 		var brands = data;
-		$('#sel1').html('');
+		$('#brand').html('');
 		output = '';
 		for (brand in brands) {
 			output += '<option id = "' + brands[brand].idmarca + '"">' + brands[brand].nome+ '</option>';
 		}
-		$('#sel1').append(output);
+		$('#brand').append(output);
 	});
 }
 

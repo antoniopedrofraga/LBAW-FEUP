@@ -13,7 +13,9 @@
     	$result = getAuctionById($id);
         $auctionCounter = getAuctionCountByUserId($auctionerObj['idutilizador']);
         $counter = unreadNotifications($name);
- 
+        $user = getMemberByName($name);
+        
+        $smarty->assign('user', $user);
         $smarty->assign('username', $_SESSION["username"]);
     	$smarty->assign('notifCounter', $counter);
         $smarty->assign('auctioner', $auctionerObj);

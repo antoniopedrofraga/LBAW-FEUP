@@ -6,7 +6,7 @@
 
   	$id = $_GET["id"];
 
-  	$query = "SELECT * FROM Leilao WHERE idLeiloeiro = ? ORDER BY dataColocacao";
+  	$query = "SELECT * FROM Leilao WHERE idLeiloeiro = ? ORDER BY dataColocacao DESC";
   	$stmt = $conn->prepare($query);
  	$stmt->execute(array($id));
  	$notifications = $stmt->fetchAll();

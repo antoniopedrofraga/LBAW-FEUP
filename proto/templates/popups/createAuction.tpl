@@ -4,23 +4,27 @@
 			<h1>Criar leilão</h1><br>
 			<form action="../actions/upload/create-auction.php" method="post">
 				<div>
-					<textarea name='nome' class='form-control popup-element' rows='1' id='comment' placeholder="Nome do leilão" required></textarea>
+					<textarea name='nome' class='form-control popup-element' rows='1' id='nome' placeholder="Nome do leilão" required></textarea>
 				</div>
 				<div>
-					<textarea name='descricaobreve' class='form-control popup-element' rows='2' id='comment' maxlength='300' placeholder="Breve descrição" required></textarea>
+					<textarea name='descricaobreve' class='form-control popup-element' rows='2' id='descricaobreve' maxlength='300' placeholder="Breve descrição" required></textarea>
 				</div>
 				<div>
-					<textarea name='descricaocompleta' class='form-control popup-element' rows='4' id='comment' maxlength='900' placeholder="Descrição completa" required></textarea>
+					<textarea name='descricaocompleta' class='form-control popup-element' rows='4' id='descricaocompleta' maxlength='900' placeholder="Descrição completa" required></textarea>
 				</div>
 				<div class="form-group">
-				<h4 for="sel1">Marca</h4>
-					<select name="brand" class="form-control" id="sel1">
+				<h4 for="brand">Marca</h4>
+					<select id="brand" name="brand" class="form-control">
 					</select>
+				</div>
+				<div>
+					<h4>Licitação base</h4>
+					<input id="licitacaoBase" name="licitacaoBase" type="number" step="0.01" placeholder"Licitação base" required>
 				</div>
 				<div id="block_container">
 					<div id='block1'>
 						<h4>Data de fim</h4>
-						<input id="end-date" class='popup-element' type="text" title="Insert a future date"/>
+						<input name="enddate" id="end-date" class='popup-element' type="text" title="Insert a future date"/>
 					</div>
 					<div id='block2'>
 						<h4>Carrega fotografias</h4>
@@ -34,7 +38,7 @@
 </div>
 
 <script language="JavaScript" type="text/javascript"> 
-    var username = '{$username}'; 
+    var id = '{$user.id}'; 
 </script> 
 
 <link href="../lib/uploadFileLib/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />

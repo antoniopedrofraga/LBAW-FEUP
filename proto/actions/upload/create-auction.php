@@ -2,9 +2,7 @@
 
 $BASE_DIR = '/opt/lbaw/lbaw1512/public_html/proto/';
 
-ini_set('post_max_size', '5M');
-ini_set('upload_max_filesize', '5M');
-
+include_once($BASE_DIR . 'config/init.php');
 // upload.php
 // 'images' refers to your file input name attribute
 if (empty($_FILES['images'])) {
@@ -13,11 +11,25 @@ if (empty($_FILES['images'])) {
     return; // terminate
 }
 
+include_once($BASE_DIR . 'database/auctions.php');
+include_once($BASE_DIR . 'database/users.php');
+
 // get the files posted
 $images = $_FILES['images'];
 
+if (empty($_POST['nome']) || empty($_POST['licitacaoBase']) || empty($_POST['descricaobreve']) ||  empty($_POST['descricaocompleta']) || empty($_POST['brand']) || empty($_POST['enddate'])) {
+    echo json_encode(['error'=> 'Alguns campos necessários para criar um leilão não foram enviados.']);
+    exit;
+}
+
 // get user name posted
-$username = empty($_POST['username']) ? '' : $_POST['username'];
+$username = $_SESSION['username'];
+$nome = empty($_POST['nome']) ? '' : $_POST['nome'];
+$descricaobreve = empty($_POST['descricaobreve']) ? '' : $_POST['descricaobreve'];
+$descricaocompleta = empty($_POST['descricaocompleta']) ? '' : $_POST['descricaocompleta'];
+$licitacaobase = empty($_POST['licitacaoBase']) ? '' : $_POST['licitacaoBase'];
+$marca = empty($_POST['brand']) ? '' : $_POST['brand'];
+$datafinal = empty($_POST['enddate']) ? '' : $_POST['enddate'];
 
 // a flag to see if everything is ok
 $success = null;
@@ -31,10 +43,11 @@ $filenames = $images['name'];
 // loop and process files
 for($i=0; $i < count($filenames); $i++){
     $ext = explode('.', basename($filenames[$i]));
-    $target =  ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "uploads" . DIRECTORY_SEPARATOR . md5(uniqid()) . "." . array_pop($ext);
+    $imagename = md5(uniqid()) . "." . array_pop($ext);
+    $target =  $BASE_DIR . "uploads" . DIRECTORY_SEPARATOR . $imagename;
     if(move_uploaded_file($images['tmp_name'][$i], $target)) {
         $success = true;
-        $paths[] = $target;
+        $paths[] = "https://gnomo.fe.up.pt/~lbaw1512/proto/uploads/" . $imagename;
     } else {
         $success = false;
         switch( $_FILES['images']['error'][$i]) {
@@ -64,12 +77,12 @@ if ($success === true) {
     // call the function to save all data to database
     // code for the following function `save_data` is not 
     // mentioned in this example
-    save_data($username, $paths);
+    createAuction($username, $nome, $descricaobreve, $descricaocompleta, $licitacaobase, $marca, $datafinal, $paths);
 
     // store a successful response (default at least an empty array). You
     // could return any additional response info you need to the plugin for
     // advanced implementations.
-    $output = [];
+    $_SESSION['success_messages'][] = 'Leilão criado com sucesso';
     // for example you can get the list of files uploaded this way
     // $output = ['uploaded' => $paths];
 } else if ($success === false) {

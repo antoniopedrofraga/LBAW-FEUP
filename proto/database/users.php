@@ -55,6 +55,12 @@ function getHomePreferences($id) {
     $stmt->execute(array($brand['idmarca']));
     $auctions = $stmt->fetchAll();
     $brand['auctions'] = $auctions;
+    foreach ($brand['auctions'] as &$auction) {
+      $stmt = $conn->prepare("SELECT * FROM Imagem WHERE idleilao = ?");
+      $stmt->execute(array($auction['idleilao']));
+      $imagem = $stmt->fetch();
+      $auction['imagelink'] = $imagem['link'];
+    }
   }
   return $homePreferences;
 }

@@ -20,6 +20,7 @@
       $homePreferences = getHomePreferences($membro['idutilizador']);
 
       $smarty->assign('notifCounter', $counter);
+      $smarty->assign('user', $membro);
   		$smarty->assign('recentAuctions', $recentAuctions);
       $smarty->assign('auctionsByBid', $auctionsByBid);
   		$smarty->assign('auctionsCount', $auctionsCount);
