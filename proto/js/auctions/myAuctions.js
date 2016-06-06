@@ -9,12 +9,12 @@ function getPageFromIndex(userid, page) {
 		var size = data == null || data.length == 0 ? 0 : (data.length - auction < 5 ? data.length - auction : 5);
 		var limit = auction + size;
 		for (auction; auction < limit; auction++) {
-			console.log('auction ' + auction + ' / limit ' + limit);
 			output += "<hr>";
 			output += '<div class="row">';
 			output += '<div class="col-md-3">';
 			output += '<a href="#">';
-			output += '<img class="img-responsive" src="http://placehold.it/200x200" alt="">';
+			var image = data[auction].imagelink != null ? data[auction].imagelink : 'http://placehold.it/200x200';
+			output += '<img class="carousel-image" alt="" width="200" height="200" style="background: url(' + image +') 50% 50% no-repeat; background-size: cover;">'
 			output += '</a>';
 			output += '</div>';
 			output += '<div class="col-md-9">';

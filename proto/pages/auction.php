@@ -14,14 +14,17 @@
         $auctionCounter = getAuctionCountByUserId($auctionerObj['idutilizador']);
         $counter = unreadNotifications($name);
         $user = getMemberByName($name);
-        
+        $images = getImagesByAuctionId($id);
+        print_r($images);
+        /*
         $smarty->assign('user', $user);
         $smarty->assign('username', $_SESSION["username"]);
     	$smarty->assign('notifCounter', $counter);
         $smarty->assign('auctioner', $auctionerObj);
+        $smarty->assign('imagens', $images);
         $smarty->assign('auctionCount', $auctionCounter);
     	$smarty->assign('auction', $result[0]);
-    	$smarty->display('home/auction.tpl');
+    	$smarty->display('home/auction.tpl');*/
     }
 
 ?>

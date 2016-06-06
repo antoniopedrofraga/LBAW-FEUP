@@ -14,6 +14,13 @@
   return $result;
 }
 
+function getImagesByAuctionId($id) {
+  $stmt = $conn->prepare("SELECT * FROM Imagem WHERE idleilao = ?");
+  $stmt->execute(array($id));
+  $imagens = $stmt->fetchAll();
+  return $imagens;
+}
+
 function getAuctionsByBid() {
   global $conn;
   $stmt = $conn->prepare("SELECT * FROM Leilao ORDER BY licitacaoAtual DESC LIMIT 8");

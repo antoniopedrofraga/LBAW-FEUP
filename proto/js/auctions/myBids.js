@@ -12,7 +12,8 @@ function getPageFromIndex(userid, page) {
 			output += '<div class="row">';
 			output += '<div class="col-md-3">';
 			output += '<a href="#">';
-			output += '<img class="img-responsive" src="http://placehold.it/200x200" alt="">';
+			var image = data[auction].imagelink != null ? data[auction].imagelink : 'http://placehold.it/200x200';
+			output += '<img class="carousel-image" alt="" width="200" height="200" style="background: url(' + image +') 50% 50% no-repeat; background-size: cover;">'
 			output += '</a>';
 			output += '</div>';
 			output += '<div class="col-md-9">';
