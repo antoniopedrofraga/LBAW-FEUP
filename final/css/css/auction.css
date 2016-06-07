@@ -1,0 +1,28 @@
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    background-color: #ededed;
+}
+
+.portfolio-item {
+    padding-left: 100%;
+    padding-right: 100%;
+}
+
+.no-padding-margin {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.bid-txt-box {
+	float: none;
+	margin: 0 auto;
+}
+
+.bid-btn {
+	margin-top: 25px;
+}
+
+.bid-well {
+	margin-right: 2%;
+	margin-left: 2%;
+}

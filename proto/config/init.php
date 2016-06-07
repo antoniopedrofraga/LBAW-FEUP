@@ -1,20 +1,20 @@
-<?php
+s<?php
   session_set_cookie_params(3600, '/~lbaw1512'); //FIXME
   session_start();
 
-  $BASE_DIR = '/opt/lbaw/lbaw1512/public_html/proto/';
+  $BASE_DIR = '/opt/lbaw/lbaw1512/public_html/final/';
 
   error_reporting(e_all);
   ini_set('log_errors',1);
   ini_set('error_log', $BASE_DIR . '/log/errorlog.log');
 
-  $BASE_URL = '/~lbaw1512/proto/'; //FIXME
+  $BASE_URL = '/~lbaw1512/final/'; //FIXME
 
   $conn = new PDO('pgsql:host=dbm;dbname=lbaw1512', 'lbaw1512', 'queremos20'); //FIXME
   $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $conn->exec('SET SCHEMA \'proto\''); //FIXME?
+  $conn->exec('SET SCHEMA \'final\''); //FIXME?
 
   include_once($BASE_DIR . 'lib/smarty/Smarty.class.php');
   

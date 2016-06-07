@@ -64,12 +64,6 @@ $(document).on('ready', function() {
 
 	var value =  getCurrentDate();
 
-	$("#messageform").submit(function (e) {
-		alert('aqui');
-		if (!$('#msgtxtarea').val())
-      			e.preventDefault();
-  	});
-
 	$('#end-date').daterangepicker({
 		singleDatePicker: true,
 		timePicker: true,

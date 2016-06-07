@@ -408,6 +408,9 @@ INSERT INTO Marca (nome) VALUES ('Citroen');
 INSERT INTO Marca (nome) VALUES ('Toyota');
 INSERT INTO Marca (nome) VALUES ('Mercedes');
 INSERT INTO Marca (nome) VALUES ('Nissan');
+INSERT INTO Marca (nome) VALUES ('BMW');
+INSERT INTO Marca (nome) VALUES ('Opel');
+INSERT INTO Marca (nome) VALUES ('Outras');
 
 INSERT INTO Feedback (texto) VALUES ('Muito prestavel');
 INSERT INTO Feedback (texto, valor) VALUES ('Correu bem', 4);

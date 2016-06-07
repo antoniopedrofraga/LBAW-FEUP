@@ -1,0 +1,34 @@
+/*!
+ * Start Bootstrap - 3 Col Portfolio HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+* {
+ 	box-sizing: border-box;
+ }
+
+ body {
+ 	padding-top: 70px; 
+ 	background-color: #ededed;
+ 	color: #000;
+ }
+
+ .portfolio-item {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+
+ .auction-name {
+ 	white-space: nowrap;
+ 	overflow: hidden;
+ 	text-overflow: ellipsis;
+ 	display: inline-block;
+ 	width: 100%;
+ 	font-size: 55%;
+ }
+
+ footer {
+ 	margin: 50px 0;
+ }
+

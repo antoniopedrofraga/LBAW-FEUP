@@ -1,0 +1,121 @@
+.searchForm {
+    position: relative;
+}
+
+.user-space {
+    position: relative;
+}
+
+.user-space .dropdown:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    color: white;
+    bottom: 100%;
+    right: 28%;
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.1) transparent;    
+}
+
+#user-space .dropdown:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    color: white;
+    bottom: 100%;
+    right: 33%;
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: #fff transparent;    
+}
+
+.dropdown {
+  /* Size & position */
+    position: absolute;
+    top: 130%;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+    padding-left: 0;
+
+    /* Styles */
+    background: white;
+    border-radius: inherit;
+    border: 1px solid rgba(0,0,0,0.17);
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    font-weight: normal;
+    transition: all 0.3s ease-in;
+    list-style: none;
+
+    /* Hiding */
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.dropdown li {
+    display: block;
+    padding: 3%;
+    padding-bottom: 4%;
+    text-decoration: none;
+    color: #5E5951;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,1);
+    transition: all 0.2s ease-out;
+    border-bottom: 1px solid #e6e8ea;
+}
+
+.dropdown li:hover {
+    background-color: #F9BF3B;
+    cursor: pointer;
+}
+
+.dropdown li div .text{
+    display: inline-block;
+}
+
+
+.dropdown li div div .name {
+    padding: 3px;
+    padding-bottom: 2px;
+    text-decoration: none;
+    font-size: 13px;
+    color: #5E5951;
+    transition: all 0.2s ease-out;
+    line-height: 15px;
+}
+
+.dropdown li div div .description {
+    padding: 3px;
+    padding-top: 1px;
+    text-decoration: none;
+    color: gray;
+    font-size: 8px;
+    transition: all 0.2s ease-out;
+    line-height: 15px;
+}
+
+.dropdown li div .image {
+	float: left;
+}
+
+.dropdown li div div img {
+	display:block;
+   	height: 35px;
+   	width:35px;
+   	padding: 3px;
+   	object-fit: cover;
+}
+
+.dropdown li a {
+    display: block;
+    padding: 3px;
+    text-decoration: none;
+    text-align: center;
+    color: #5E5951;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,1);
+    transition: all 0.2s ease-out;
+}

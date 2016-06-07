@@ -1,0 +1,48 @@
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    background-color: #ededed;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+.ratings-size {
+	font-size: 140%;
+}
+
+.nav-tabs > li > a {
+	color: #ff6700;
+}
+
+.nav-tabs > li > a:hover{
+	background-color: #ffffff;
+	color: #ec971f;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+.preview {
+    font-size: 90%;
+}
