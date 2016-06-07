@@ -53,12 +53,13 @@ CREATE TABLE MembroBanido
  
 	idMembroBanido INTEGER,
 	dataBanido TIMESTAMP NOT NULL DEFAULT NOW(),
-	duracao INTEGER,
+	dataFinal TIMESTAMP NOT NULL,
 	motivo TEXT,
  
 	PRIMARY KEY (idMembroBanido),
 	FOREIGN KEY (idMembroBanido)
-		REFERENCES Membro(idUtilizador)	
+		REFERENCES Membro(idUtilizador)	,
+		CONSTRAINT dataCorreta CHECK (dataBanido <= NOW() AND dataFinal > dataBanido)
 )
 ;
  
@@ -206,7 +207,8 @@ CREATE TABLE Imagem
  
 	PRIMARY KEY (idImagem),
 	FOREIGN KEY (idLeilao)
-		REFERENCES Leilao(idLeilao),
+		REFERENCES Leilao(idLeilao)
+		ON DELETE CASCADE,
 	UNIQUE(link) 
 )
 ;
@@ -356,8 +358,8 @@ $$
 		DELETE FROM Licitacao 
 			WHERE idCliente = NEW.idMembroBanido;
 		EXECUTE atualizaMaiorLicitacao ();
-		INSERT INTO Notificacao (idUtilizador, texto) VALUES ( NEW.idMembroBanido, 'Foi banido durante ' ||  NEW.duracao ||
-		 ' dias, como tal todos os seu leiloes/licitacoes foram apagadas. Mensagem do administrador: ' || NEW.motivo );
+		INSERT INTO Notificacao (idUtilizador, texto) VALUES ( NEW.idMembroBanido, 'Foi banido durante até ' ||  NEW.dataFinal ||
+		 ', como tal todos os seu leiloes/licitacoes foram apagadas. Mensagem do administrador: ' || NEW.motivo );
 		RETURN NEW;
 	END;
 $$ LANGUAGE plpgsql;
@@ -456,4 +458,4 @@ INSERT INTO Mensagem (idEmissor, idRecetor, texto) VALUES (12, 13, 'Hey, precisa
 INSERT INTO Mensagem (idEmissor, idRecetor, texto) VALUES (3, 7, 'Ola. Gostava de obter mais informacoes sobre o carro. Cumprimentos');
 INSERT INTO Mensagem (idEmissor, idRecetor, texto) VALUES (7, 3, 'Sim, claro. Tal como diz na descricao o carro e de 1999, tem 132450km e esta em muito bom estado. Obrigado, disponha!');
 
-INSERT INTO MembroBanido (idMembroBanido, duracao, motivo) VALUES (3, 365, 'Foi rude');
+INSERT INTO MembroBanido (idMembroBanido, dataFinal, motivo) VALUES (3, '2016-08-25 23:05', 'Foi rude');

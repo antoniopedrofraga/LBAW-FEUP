@@ -100,6 +100,7 @@ if ($success === true) {
     foreach ($paths as $file) {
         unlink($file);
     }
+    $_SESSION['error_messages'][] = $error . ' - ' .  $message;
 } else {
     $output = ['error'=>'No files were processed.'];
 }

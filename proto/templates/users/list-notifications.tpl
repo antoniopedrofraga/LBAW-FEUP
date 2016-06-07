@@ -1,6 +1,3 @@
-<script language="JavaScript" type="text/javascript"> 
-    var id = {$user.idutilizador}; 
-</script> 
 <div class="notifications-body" style="margin-top: 10%">
   <h2>Notificações</h2>
   <div class="list-group notifications-container" style="margin-top: 5%">
@@ -9,3 +6,7 @@
     </a>
   </div>
 </div>
+<script type="text/javascript"> 
+    var userid = {$user.idutilizador};
+</script>
+<script src="../js/all-notifications.js"></script>

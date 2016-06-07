@@ -21,7 +21,7 @@
         $smarty->assign('auctioner', $auctionerObj);
         $smarty->assign('imagens', $images);
         $smarty->assign('auctionCount', $auctionCounter);
-    	$smarty->assign('auction', $result[0]);
+    	$smarty->assign('auction', $result);
     	$smarty->display('home/auction.tpl');
     }
 

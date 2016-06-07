@@ -56,8 +56,8 @@ $(document).on('ready', function() {
 
 	$('#licitacaoBase').on('change', function() {
 		var $this = $(this);
-		if ($this.val() < 0.01) {
-			$this.val('0.01');
+		if (parseInt($this.val()) <= 0) {
+			$this.val('1');
 		}
 	});
 
@@ -70,7 +70,7 @@ $(document).on('ready', function() {
 		timePickerIncrement: 1,
 		startDate: value,
 		locale: {
-			format: 'DD/MM/YYYY H:mm'
+			format: 'YYYY/MM/DD H:mm'
 		}
 	});
 
@@ -116,5 +116,5 @@ function getCurrentDate() {
 		mm='0'+mm
 	} 
 
-	return dd + '/' + mm + '/' + yyyy + ' ' + hours + ':' + minutes;
+	return yyyy + '/' + mm + '/' + dd + ' ' + hours + ':' + minutes;
 }

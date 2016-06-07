@@ -4,7 +4,7 @@ var limit = 15;
 var count = -1;
 
 $( document ).ready(function() {
-	getNotifications(id);
+	getNotifications();
 	$('body').on('click', '.paginate', function (){
 		var index = parseInt($(this).text());
 		if (index * limit < count) {
@@ -14,12 +14,12 @@ $( document ).ready(function() {
 		} else {
 			page = parseInt(index);
 		}
-		getNotifications(id);
+		getNotifications();
 	});
 });
 
 
-function getNotifications(userid) {
+function getNotifications() {
 	$.getJSON("../ajax/get-notifications-count.php", { id: userid }, function(data) {
 		count = data.count;
 		$.getJSON("../ajax/get-all-notifications.php", { id: userid, offset: ((page - 1) * limit), limit: limit }, function(data) {

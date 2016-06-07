@@ -19,7 +19,7 @@
 				</div>
 				<div>
 					<h4>Licitação base</h4>
-					<input id="licitacaoBase" name="licitacaoBase" type="number" step="0.01" placeholder"Licitação base" required>
+					<input id="licitacaoBase" name="licitacaoBase" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder"Licitação base" required>
 				</div>
 				<div id="block_container">
 					<div id='block1'>

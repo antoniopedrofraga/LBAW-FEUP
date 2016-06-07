@@ -8,6 +8,7 @@
 
 	<div class="container">
 		{include file='auctions/display-auction.tpl'}
+		<script src="../js/auctions/auction.js"></script>
 	</div>
 
 {include file='popups/createAuction.tpl'}

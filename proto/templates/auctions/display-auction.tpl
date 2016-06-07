@@ -21,14 +21,12 @@
         <h3>Detalhes</h3>
         <small>
             <p><span class="glyphicon glyphicon-euro"></span> {if $auction.licitacaoatual > 0}{$auction.licitacaoatual}{else}{$auction.licitacaobase}{/if}</p>
+            <p><span class="glyphicon glyphicon-time"></span> <span id="clock"></span></p>
         </small>
-        <big>
-        <p class="badge"><span class="glyphicon glyphicon-time"></span> <span id="clock"></span></p>
-        </big>
 
         <form class="span4 offset4 text-center">
-            <input type='text' placeholder="{if $auction.licitacaoatual > 0}{$auction.licitacaoatual}{else}{$auction.licitacaobase}{/if}€">
-            <button id='licitar' type="button" class="btn btn-warning btn-lg round bid-btn {if $auctioner.nomeutilizador == $username}disabled{/if}">Licitar!</button>
+            <input id="licitacao" type='text'placeholder="{if $auction.licitacaoatual > 0}{$auction.licitacaoatual}{else}{$auction.licitacaobase}{/if}€" {if $auctioner.nomeutilizador == $username}disabled{/if} onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 110 || event.charCode == 190">
+            <button id='licitar' type="button" class="btn btn-warning btn-lg round bid-btn" disabled>Licitar!</button>
         </form>
     </div>
     <div class="well col-md-3 bid-well">
@@ -52,7 +50,12 @@
                 {$auctioner.datainscricao}</small>
             </p>
             <div class="span4 offset4 text-center">
-                <button type="button" class="btn btn-warning btn-larg round bid-btn {if $auctioner.nomeutilizador == $username}disabled{/if}" {if $auctioner.nomeutilizador != $username} data-toggle="modal" data-target="#messageModal"{/if}><span class="glyphicon glyphicon-envelope"></span>  Contactar</button>
+                <button type="button" class="btn btn-warning btn-larg round bid-btn" {if $auctioner.nomeutilizador != $username} data-toggle="modal" data-target="#messageModal"{/if} {if $auctioner.nomeutilizador == $username}disabled{/if}><span class="glyphicon glyphicon-envelope"></span>  Contactar</button>
+            </div>
+            <br>
+            <br>
+            <div class="span4 offset4 text-center">
+                <button id="feedbackBtn" type="button" class="btn btn-warning btn-larg round feedback-btn" disabled><span class="glyphicon glyphicon-star-empty"></span>  Dar Feedback</button>
             </div>
         </div>
     </div>
@@ -88,7 +91,7 @@
                     <br>
                     <label class="icon-title" for="comment"><span class="glyphicon glyphicon-pencil"></span>    Mensagem</label>
                     <br>
-                    <textarea name="message" class="form-control" rows="4" maxlength="5000" placeholder="Escreve a mensagem a enviar" required></textarea>
+                    <textarea name="message" class="form-control" rows="4" maxlength="5000" placeholder="Escreve a mensagem a enviar"></textarea>
                 </div>
                 <div class="modal-footer">
                     <input type="submit" value="Enviar" name="submit" id="submitButton" class="btn btn-info pull-right" title="Clica para enviar a tua mensagem!" />
@@ -101,20 +104,9 @@
 
 <script src="../lib/countdown-master/src/countdown.js"></script>
 <script type="text/javascript">
-    $('#clock').countdown('{$auction.datafinal}')
-    .on('update.countdown', function(event) {
-        var format = '%H:%M:%S';
-        if(event.offset.days > 0) {
-            format = '%-d dia%!d ' + format;
-        }
-        if(event.offset.weeks > 0) {
-            format = '%-w semana%!w ' + format;
-        }
-        $(this).html(event.strftime(format));
-    })
-    .on('finish.countdown', function(event) {
-        $(this).html('Este leilão terminou')
-        .parent().addClass('disabled');
-        $('#licitar').addClass('disabled');
-    });
+    var sameuser = '{$auctioner.nomeutilizador}' == '{$username}';
+    var idcliente = '{$user.idutilizador}';
+    var bid = {if $auction.licitacaoatual > 0}{$auction.licitacaoatual}{else}{$auction.licitacaobase}{/if};
+    var auctionid = {$auction.idleilao};
+    var datafinal = '{$auction.datafinal}';
 </script>

@@ -6,7 +6,6 @@
 
   <div class="container">
     {include file='users/list-notifications.tpl'}
-    <script src="../js/all-notifications.js"></script>
   </div>
 
 {include file='popups/createAuction.tpl'}

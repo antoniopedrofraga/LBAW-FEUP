@@ -18,11 +18,28 @@ function getPageFromIndex(userid, page) {
 			output += '</div>';
 			output += '<div class="col-md-9">';
 			output += '<h3>' + data[auction].nome + '</h3>';
-			output += '<h4>Aberto ' + '(Valor da licitação: <span class="badge">' + data[auction].valor + '€</span>)</h4>';
+			output += '<h4><span id="clock-' + data[auction].idleilao + '"></span> ' + '(Valor da licitação: <span class="badge">' + data[auction].valor + '€</span>)</h4>';
 			output += '<p>' + data[auction].descricaobreve + '</p>';
 			output += '<a class="btn btn-warning" href="../pages/auction.php?id=' + data[auction].idleilao + '">Ver Leilão <span class="glyphicon glyphicon-chevron-right"></span></a>';
 			output += '</div>';
 			output += '</div>';
+			$("#info").append(output);
+			output = "";
+			$('#clock-' + data[auction].idleilao).countdown(data[auction].datafinal)
+			.on('update.countdown', function(event) {
+				var format = '%H:%M:%S';
+				if(event.offset.days > 0) {
+					format = '%-d day%!d ' + format;
+				}
+				if(event.offset.weeks > 0) {
+					format = '%-w week%!w ' + format;
+				}
+				$(this).html(event.strftime(format));
+			})
+			.on('finish.countdown', function(event) {
+				$(this).html('Leilão terminado')
+				.parent().addClass('disabled');
+			});
 		}
 
 		if (data == null || data.length == 0) {

@@ -45,6 +45,12 @@ function isLoginCorrect($username, $password) {
   return $stmt->fetch() == true;
 }
 
+function makeBid($auctionId, $clientId, $bid) {
+  global $conn;
+  $stmt = $conn->prepare("INSERT INTO Licitacao (idleilao, idcliente, valor) VALUES (?, ?, ?)");
+  $stmt->execute(array($auctionId, $clientId, $bid));
+}
+
 function getHomePreferences($id) {
   global $conn;
   $stmt = $conn->prepare("SELECT * FROM Marca WHERE idMarca IN (SELECT idMarca FROM Preferencias WHERE idCliente = ?)");

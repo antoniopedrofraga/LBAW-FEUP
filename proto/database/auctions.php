@@ -38,9 +38,10 @@ function getAuctionsByBid() {
 
 function getAuctionById($id) {
   global $conn;
-  $stmt = $conn->prepare("SELECT * FROM Leilao WHERE idLeilao = " . $id . " LIMIT 1");
+  $stmt = $conn->prepare("SELECT * FROM Leilao WHERE idLeilao = " . $id);
   $stmt->execute();
-  return $stmt->fetchAll();
+  $auction = $stmt->fetch();
+  return $auction;
 }
 
 function getAuctionCountByUserId($id) {
