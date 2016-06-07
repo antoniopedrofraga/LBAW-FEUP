@@ -2,7 +2,7 @@
 	<div class="modal-dialog">
 		<div class="custom-modal-container create-auction" id="custom-content">
 			<h1>Criar leilão</h1><br>
-			<form action="../actions/upload/create-auction.php" method="post">
+			<form id="criarleilao" name="leilao" action="../actions/upload/create-auction.php" method="post">
 				<div data-intro="Introduz o nome do leilão." data-position="top">
 					<textarea name='nome' class='form-control popup-element' rows='1' id='nome' placeholder="Nome do leilão" required></textarea>
 				</div>
@@ -30,7 +30,7 @@
 					<h4>Carrega fotografias</h4>
 					<input multiple id="images" name="images[]" type="file" accept="image/*" data-intro="Carrega até 5 fotografias por leilão" data-position="right" required>
 				</div>
-				<input id='create-auction' type="submit" name="create-auction" class="create-auction custom-modal-submit" value="Criar">
+				<input id='create-auction' type="submit" name="create-auction" class="create-auction custom-modal-submit" value="Criar" form="criarleilao">
 				<br>
 				<a href"#" id='help-modal' class="pull-right">Ajuda (?)</a>
 			</form>

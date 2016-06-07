@@ -76,7 +76,7 @@
 
 <div class="modal fade" id="messageModal" role="dialog">
     <div class="modal-dialog">
-        <form name="enq" method="post" action="../actions/messages/send-message.php" novalidate>
+        <form id='messageform' name="enq" method="post" action="../actions/messages/send-message.php">
             <div class="modal-content">
                 <fieldset>
                   <div class="modal-header">
@@ -91,7 +91,7 @@
                     <br>
                     <label class="icon-title" for="comment"><span class="glyphicon glyphicon-pencil"></span>    Mensagem</label>
                     <br>
-                    <textarea name="message" class="form-control" rows="4" maxlength="5000" placeholder="Escreve a mensagem a enviar"></textarea>
+                    <textarea id='msgtxtarea' name="message" class="form-control" rows="4" maxlength="5000" placeholder="Escreve a mensagem a enviar"></textarea>
                 </div>
                 <div class="modal-footer">
                     <input type="submit" value="Enviar" name="submit" id="submitButton" class="btn btn-info pull-right" title="Clica para enviar a tua mensagem!" />

@@ -17,7 +17,7 @@ function getPageFromIndex(userid) {
 			output += '<div class="col-md-4 col-sm-5">';
 			output += '<a href="#">';
 			var image = data[auction].imagelink != null ? data[auction].imagelink : 'http://placehold.it/200x200';
-			output += '<img class="carousel-image" alt="" width="200" height="200" style="background: url(' + image +') 50% 50% no-repeat; background-size: cover;">'
+			output += '<img class="carousel-image" alt="" width="200" height="200" style="background: url(' + image +') 50% 50% no-repeat; background-size: cover; display: block;">'
 			output += '</a>';
 			output += '</div>';
 			output += '<div class="col-md-8 col-sm-7">';

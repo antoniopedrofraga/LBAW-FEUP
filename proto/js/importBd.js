@@ -37,6 +37,7 @@ $(document).on('ready', function() {
 	$("#images").on('filebatchuploadcomplete', function(event, data, previewId, index) {
 		var form = data.form, files = data.files, extra = data.extra,
 		response = data.response, reader = data.reader;
+		alert(data);
 		location.reload();
 	});
 
@@ -62,6 +63,12 @@ $(document).on('ready', function() {
 	});
 
 	var value =  getCurrentDate();
+
+	$("#messageform").submit(function (e) {
+		alert('aqui');
+		if (!$('#msgtxtarea').val())
+      			e.preventDefault();
+  	});
 
 	$('#end-date').daterangepicker({
 		singleDatePicker: true,
