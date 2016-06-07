@@ -24,9 +24,9 @@ if (empty($_POST['nome']) || empty($_POST['licitacaoBase']) || empty($_POST['des
 
 // get user name posted
 $username = $_SESSION['username'];
-$nome = empty($_POST['nome']) ? '' : $_POST['nome'];
-$descricaobreve = empty($_POST['descricaobreve']) ? '' : $_POST['descricaobreve'];
-$descricaocompleta = empty($_POST['descricaocompleta']) ? '' : $_POST['descricaocompleta'];
+$nome = empty($_POST['nome']) ? '' :  htmlentities($_POST['nome']);
+$descricaobreve = empty($_POST['descricaobreve']) ? '' :  htmlentities($_POST['descricaobreve']);
+$descricaocompleta = empty($_POST['descricaocompleta']) ? '' :  htmlentities($_POST['descricaocompleta']);
 $licitacaobase = empty($_POST['licitacaoBase']) ? '' : $_POST['licitacaoBase'];
 $marca = empty($_POST['brand']) ? '' : $_POST['brand'];
 $datafinal = empty($_POST['enddate']) ? '' : $_POST['enddate'];

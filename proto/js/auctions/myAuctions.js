@@ -13,14 +13,14 @@ function getPageFromIndex(userid) {
 		for (auction; auction < limit; auction++) {
 			output += "<hr>";
 			output += '<div class="row">';
-			output += '<button id="' + data[auction].idleilao + '" type="button" class="close pull-right remove-auction" title="Remover leilão">&times;</button>';
-			output += '<div class="col-md-3">';
+			output += '<button id="' + data[auction].idleilao + '" type="button" class="close pull-right remove-auction" title="Remover leilão"><span class="glyphicon glyphicon-trash"></span>&nbsp;</button>';
+			output += '<div class="col-md-4 col-sm-5">';
 			output += '<a href="#">';
 			var image = data[auction].imagelink != null ? data[auction].imagelink : 'http://placehold.it/200x200';
 			output += '<img class="carousel-image" alt="" width="200" height="200" style="background: url(' + image +') 50% 50% no-repeat; background-size: cover;">'
 			output += '</a>';
 			output += '</div>';
-			output += '<div class="col-md-9">';
+			output += '<div class="col-md-8 col-sm-7">';
 			output += '<h3>' + data[auction].nome + '</h3>';
 			var licitacao = data[auction].licitacaoatual == null ? data[auction].licitacaobase : data[auction].licitacaoatual;
 			output += '<h4><span id="clock-' + data[auction].idleilao + '"></span> (Valor da licitação mais alta: <span class="badge">' + licitacao + '€</span>)</h4>';

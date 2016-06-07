@@ -1,3 +1,4 @@
+
 <!-- Portfolio Item Heading -->
 <div class="row">
     <div class="col-lg-12">
@@ -19,7 +20,7 @@
         <h3>Descrição breve</h3>
         <p>{$auction.descricaobreve}</p>
         <h3>Detalhes</h3>
-        <small>
+        <small class='info'>
             <p><span class="glyphicon glyphicon-euro"></span> {if $auction.licitacaoatual > 0}{$auction.licitacaoatual}{else}{$auction.licitacaobase}{/if}</p>
             <p><span class="glyphicon glyphicon-time"></span> <span id="clock"></span></p>
         </small>
@@ -54,8 +55,7 @@
             </div>
             <br>
             <br>
-            <div class="span4 offset4 text-center">
-                <button id="feedbackBtn" type="button" class="btn btn-warning btn-larg round feedback-btn" disabled><span class="glyphicon glyphicon-star-empty"></span>  Dar Feedback</button>
+            <div class="span4 offset4 text-center feedback">
             </div>
         </div>
     </div>
@@ -103,10 +103,12 @@
 </div>
 
 <script src="../lib/countdown-master/src/countdown.js"></script>
+<script src="../lib/star-rating/js/star-rating.js" type="text/javascript"></script>
 <script type="text/javascript">
     var sameuser = '{$auctioner.nomeutilizador}' == '{$username}';
     var idcliente = '{$user.idutilizador}';
     var bid = {if $auction.licitacaoatual > 0}{$auction.licitacaoatual}{else}{$auction.licitacaobase}{/if};
+    var username = '{$username}';
     var auctionid = {$auction.idleilao};
     var datafinal = '{$auction.datafinal}';
 </script>

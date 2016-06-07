@@ -9,9 +9,9 @@
     exit;
   }
 
-  $name = $_POST['name'];
-  $username = $_POST['username'];
-  $email = $_POST['email'];
+  $name =  htmlentities($_POST['name']);
+  $username =  htmlentities($_POST['username']);
+  $email =  htmlentities($_POST['email']);
   $password = $_POST['password'];
   $birthday = $_POST['birthday'];
 

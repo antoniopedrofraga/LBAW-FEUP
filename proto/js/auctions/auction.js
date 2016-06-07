@@ -3,10 +3,10 @@ $( document ).ready(function() {
 		$('#licitacao').keyup(function() {
 			if ($(this).val() && parseFloat($(this).val()) > bid) {
 				$('#licitar').removeAttr('disabled');
-    		} else {
-    			$('#licitar').attr("disabled", "disabled")
-    		}
-    	});
+			} else {
+				$('#licitar').attr("disabled", "disabled")
+			}
+		});
 	}
 
 	$('#licitar').click(function() {
@@ -36,8 +36,8 @@ $( document ).ready(function() {
 		.parent().addClass('disabled');
 		$('#licitar').addClass('disabled');
 		$.getJSON("../ajax/get-higher-bid.php", {auctionid: auctionid}, function(data) {
-			if (data.idcliente == idcliente) {
-				$('#feedbackBtn').removeAttr('disabled');
+			if (data.idutilizador != null) {
+				$('.info').append('<br><p class="text-center">O utilizador <a href="./feedbackpage.php?id=' + data.idutilizador + '">' + data.nomeutilizador + '</a>' + ' é o vencedor do leilão.</p><br>');
 			}
 		});
 	});

@@ -17,7 +17,7 @@
  	}
 
 
- 	$username2 = $_POST['username'];
+ 	$username2 =  htmlentities($_POST['username']);
  	$sender = getMemberByName($username1);
  	$receiver = getMemberByName($username2);
 
@@ -27,7 +27,7 @@
     	exit;
  	}
 
- 	$texto = $_POST['message'];
+ 	$texto =  htmlentities($_POST['message']);
  	sendMessage($sender['idutilizador'], $receiver['idutilizador'], $texto);
  	$_SESSION['form_values'] = $_POST;
  	$_SESSION['success_messages'][] = 'Mensagem enviada para o utilizador ' . $username2;

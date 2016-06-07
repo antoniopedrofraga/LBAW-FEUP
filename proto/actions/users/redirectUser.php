@@ -9,7 +9,7 @@
  	$member = getMemberByName($username);
  	$type = $member['tipomembro'];
  	if ($type == "Admin") {
- 		header('Location: ../../pages/admin.php?id=' . $member['idutilizador']);
+ 		header('Location: ../../pages/admin.php?id=' . $member['idutilizador'] . '&tab=1');
  	} else if ($type == "Cliente") {
 		header('Location: ../../pages/profile.php?id=' . $member['idutilizador'] . '&tab=1');
  	} else {

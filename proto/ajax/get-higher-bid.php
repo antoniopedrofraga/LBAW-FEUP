@@ -10,5 +10,9 @@
 	$stmt = $conn->prepare($query);
 	$stmt->execute(array($id, $id));
 	$winner = $stmt->fetch();
-	echo json_encode($winner);
+
+	$query = "SELECT * FROM Membro WHERE idutilizador = ?";
+	$stmt = $conn->prepare($query);
+	$stmt->execute(array($winner['idcliente']));
+	echo json_encode($stmt->fetch());
 ?>

@@ -13,9 +13,11 @@
           <li>
             <a id="username" href="../actions/users/redirectUser.php?username={$USERNAME}" title="Página do utilizador"><span class="glyphicon glyphicon-user"></span>{$USERNAME}</a>
           </li>
+          {if $user.tipomembro == "Cliente"}
           <li>
             <a id="create-auction" class="glyphicon glyphicon-plus-sign" href="#" title="Criar leilão"></a>
           </li>
+          {/if}
           <li>
             <a id="notifications" class="glyphicon glyphicon-bell" title="Notificações">{if $notifCounter > 0}<span style="font-size:0.8em; font-family: 'Roboto'"class="badge badge-notify">{$notifCounter}</span>{/if}</a>
           </li>

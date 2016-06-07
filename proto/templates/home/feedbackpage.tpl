@@ -6,9 +6,7 @@
 
 <div class="container">
 	<div class="row row-centered">
-		<div class="col-md-9 col-centered">
-			{include file='users/tabs/display-feedback.tpl'}
-		</div>
+		{include file='users/tabs/display-feedback.tpl'}
 	</div>
 </div>
 
