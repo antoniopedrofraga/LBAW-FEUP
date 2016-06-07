@@ -31,6 +31,19 @@ function getMemberByName($name) {
   return $stmt->fetch();
 }
 
+function userIsBanned($id) {
+  global $conn;
+  $stmt = $conn->prepare("SELECT * FROM membrobanido WHERE idmembrobanido = ?");
+  $stmt->execute(array($id));
+  $result = $stmt->fetch();
+  if ($result['idmembrobanido'] == null) {
+    return false;
+  } else {
+    $datafinal = $result['datafinal'];
+    return time() < strtotime($datafinal);
+  }
+}
+
 function getMemberById($id) {
   global $conn;
   $stmt = $conn->prepare("SELECT * FROM Membro WHERE idUtilizador = ?");

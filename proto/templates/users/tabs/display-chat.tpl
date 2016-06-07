@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-sm-9 col-md-10">
         <!-- Split button -->
-        <div class="pull-right" id="buttons">
+        <div class="pull-right" id="buttons" data-intro="Muda de página sem ter que a carregar de novo." data-position="left">
             <span class="text-muted" id="offset"><b>0</b>–<b>0</b> of <b>0</b></span>
             <div class="btn-group btn-group-sm">
                 <button type="button" class="btn btn-default" id="paginate-left">
@@ -18,7 +18,7 @@
     <hr />
     <div class="row">
         <div class="col-sm-9 col-md-10">
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-tabs" data-intro="Alterna entre abas." data-position="bottom">
                 <li class="active"><a id='rcvdBtn' href="#messages" data-toggle="tab"><span class="glyphicon glyphicon-inbox">
                 </span>Recebidas</a>
             </li>

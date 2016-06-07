@@ -17,3 +17,8 @@ input[type="date"]:before {
   input[type="date"]:valid:before {
     content: "";
   }
+
+
+body {
+    background-image: url("../images/wallpaper.jpg") !important;
+}

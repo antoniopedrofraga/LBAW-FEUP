@@ -2,13 +2,13 @@
 
       <form class="navbar-form navbar-left searchForm" role="search">
         <div class="form-group">
-          <input id="searchTextBox" type="text" class="form-control" placeholder="Pesquisa de automóveis" autocomplete="off">
+          <input id="searchTextBox" type="text" class="form-control" placeholder="Pesquisa de automóveis" autocomplete="off" data-intro="Pesquisa por leilões." data-position="bottom">
           <ul class="dropdown" id="searchDropdown">
           </ul>
         </div>
       </form>
 
-      <div class="collapse navbar-collapse user-space" id="bs-example-navbar-collapse-1">
+      <div class="collapse navbar-collapse user-space" id="bs-example-navbar-collapse-1" data-intro="Passa o rato por cima das ações par as conhecer." data-position="bottom">
         <ul class="nav navbar-nav">
           <li>
             <a id="username" href="../actions/users/redirectUser.php?username={$USERNAME}" title="Página do utilizador"><span class="glyphicon glyphicon-user"></span>{$USERNAME}</a>

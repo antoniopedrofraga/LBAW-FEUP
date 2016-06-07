@@ -358,7 +358,7 @@ $$
 		DELETE FROM Licitacao 
 			WHERE idCliente = NEW.idMembroBanido;
 		EXECUTE atualizaMaiorLicitacao ();
-		INSERT INTO Notificacao (idUtilizador, texto) VALUES ( NEW.idMembroBanido, 'Foi banido durante até ' ||  NEW.dataFinal ||
+		INSERT INTO Notificacao (idUtilizador, texto) VALUES ( NEW.idMembroBanido, 'Foi banido até ' ||  NEW.dataFinal ||
 		 ', como tal todos os seu leiloes/licitacoes foram apagadas. Mensagem do administrador: ' || NEW.motivo );
 		RETURN NEW;
 	END;

@@ -4,12 +4,12 @@
 
 	<div class="col-md-3 tabs">
 		<p class="lead"><span class="glyphicon glyphicon-user"></span>    {$USERNAME}</p>
-		<div class="list-group">
+		<div class="list-group" data-intro="Acede a páginas pessoais clicando nestes elementos." data-position="left">
 			<a href="../pages/profile.php?id={$user.idutilizador}&tab=1" class="list-group-item {if $tabIndex == 1}active{/if}">Página de feedback</a>
 			<a href="../pages/profile.php?id={$user.idutilizador}&tab=2" class="list-group-item {if $tabIndex == 2}active{/if}">Os meus leilões</a>
 			<a href="../pages/profile.php?id={$user.idutilizador}&tab=3" class="list-group-item {if $tabIndex == 3}active{/if}">As minhas licitações</a>
 			<a href="../pages/profile.php?id={$user.idutilizador}&tab=4" class="list-group-item {if $tabIndex == 4}active{/if}">Mensagens</a>
-			<a href="../pages/profile.php?id={$user.idutilizador}&tab=5" class="list-group-item {if $tabIndex == 6}active{/if}">Configurações</a>
+			<a href="../pages/profile.php?id={$user.idutilizador}&tab=5" class="list-group-item {if $tabIndex == 5}active{/if}">Configurações</a>
 		</div>
 	</div>
 

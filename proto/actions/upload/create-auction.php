@@ -18,7 +18,7 @@ include_once($BASE_DIR . 'database/users.php');
 $images = $_FILES['images'];
 
 if (empty($_POST['nome']) || empty($_POST['licitacaoBase']) || empty($_POST['descricaobreve']) ||  empty($_POST['descricaocompleta']) || empty($_POST['brand']) || empty($_POST['enddate'])) {
-    echo json_encode(['error'=> 'Alguns campos necessários para criar um leilão não foram enviados.']);
+    $_SESSION['error_messages'][] = 'Alguns campos necessários para criar um leilão não foram enviados.';
     exit;
 }
 
@@ -30,6 +30,14 @@ $descricaocompleta = empty($_POST['descricaocompleta']) ? '' :  htmlentities($_P
 $licitacaobase = empty($_POST['licitacaoBase']) ? '' : $_POST['licitacaoBase'];
 $marca = empty($_POST['brand']) ? '' : $_POST['brand'];
 $datafinal = empty($_POST['enddate']) ? '' : $_POST['enddate'];
+
+
+$user = getMemberByName($username);
+
+if (userIsBanned($user['idutilizador'])) {
+    $_SESSION['error_messages'][] = 'Estás banido, portanto não podes criar um leilão.';
+    exit;
+}
 
 // a flag to see if everything is ok
 $success = null;

@@ -17,6 +17,11 @@
         }
         $counter = unreadNotifications($username);
 
+        if ($user['tipomembro'] == 'Admin') {
+            $_SESSION['error_messages'][] = 'Não pode aceder a um perfil de Cliente sendo um Administrador';
+            header('Location: ../pages/home.php');
+        }
+
         $smarty->assign('username', $_SESSION["username"]);
         $smarty->assign('notifCounter', $counter);
         $smarty->assign('user', $user);

@@ -3,10 +3,10 @@
 	<div class="form-group">
 		<label class="icon-title" for="comment"><span class="glyphicon glyphicon-pencil"></span>    Breve descrição</label>
 		<br>
-		<textarea class="form-control" rows="3" id="description" maxlength="300" placeholder="Adicione uma descrição à sua página de feedback"></textarea>
+		<textarea data-intro="Escolhe a descrição a aparecer na tua página de feedback" data-position="right" class="form-control" rows="3" id="description" maxlength="300" placeholder="Adicione uma descrição à sua página de feedback"></textarea>
 	</div>
 	<hr>
-	<div class="form-group">
+	<div class="form-group" data-intro="Escolhe as marcas a listar na página principal" data-position="bottom">
 		<label class="icon-title" for="comment"><span class="glyphicon glyphicon-list"></span>    Marcas a listar na página principal</label>
 		<br>
 		<div id="marcas">
