@@ -2,11 +2,11 @@
 
 ## Index
 
-1. [Description] (#description)
-2. [Developers] (#developers)
-3. [Programme] (#programme)
-4. [Artifacts] (#artifacts)
-5. [Final Product] (#final-product)
+1. [Description](#description)
+2. [Developers](#developers)
+3. [Programme](#programme)
+4. [Artifacts](#artifacts)
+5. [Final Product](#final-product)
 
 
 ***
@@ -19,7 +19,7 @@ The unit aims at revisit the learning outcome of databases and web languages ​
 
 ### Developers
 
-| [António Pedro Fraga] (https://github.com/pedrofraga) | [Luís Oliveira] (https://github.com/luisoliveira8) | [Marina Camilo] (https://github.com/Aniiram) | [Pedro Martins] (https://github.com/esquilofeup) |
+| [António Pedro Fraga](https://github.com/pedrofraga) | [Luís Oliveira](https://github.com/luisoliveira8) | [Marina Camilo](https://github.com/Aniiram) | [Pedro Martins](https://github.com/esquilofeup) |
 | ------------- | ------------- | ------------- | ------------- |
 | ![](https://raw.githubusercontent.com/pedrofraga/LBAW-FEUP/master/images/fraga.jpg)  | ![](https://raw.githubusercontent.com/pedrofraga/LBAW-FEUP/master/images/poncho.jpg)  | ![](https://raw.githubusercontent.com/pedrofraga/LBAW-FEUP/master/images/marina.jpg)  | ![](https://raw.githubusercontent.com/pedrofraga/LBAW-FEUP/master/images/esquilo.jpg)  |
 | up201303095@fe.up.pt  | up201304515@fe.up.pt  | up201307722@fe.up.pt  | up201303095@fe.up.pt  |
